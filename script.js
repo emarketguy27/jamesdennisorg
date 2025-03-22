@@ -56,22 +56,36 @@ darkmodeToggle.addEventListener('click', () => {
     
 })
 
-// ----------Hide navbar on scroll down----------
+// ----------Hide/Show navbar & ScrolltoTop on scroll up/down----------
 
 var prevScrollpos = window.pageYOffset;
+const scrollHeight = document.documentElement.scrollHeight;
 
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos && currentScrollPos < 600) {
-            document.getElementById("header").style.top = "0";
-            document.getElementById("toTop").style.bottom = "-80px";
-        } else {
+    scrollPercent = ((currentScrollPos / scrollHeight) * 100).toFixed();
+    console.log(scrollPercent);
+
+        if (prevScrollpos < currentScrollPos && scrollPercent > 10) {
             document.getElementById("header").style.top = "-80px";
-            document.getElementById("toTop").style.bottom = "100px";
+            // document.getElementById("toTop").style.bottom = "0px";
+        } else {
+            document.getElementById("header").style.top = "0px";
+        };
+
+        if (scrollPercent > 10 && scrollPercent > 80) {
+            document.getElementById("toTop").style.bottom = "80px";
+        } else {
+            if (scrollPercent > 10 && scrollPercent < 88) {
+                document.getElementById("toTop").style.bottom = "0px";
+            } else {
+                document.getElementById("toTop").style.bottom = "-80px";                
+            }
         }
         
-        prevScrollpos = currentScrollPos;
+        prevScrollpos = currentScrollPos;  
     }
+
 
 // ----------Lenis Smooth Scroll----------
 /* Initialize Lenis with custom option */

@@ -271,6 +271,7 @@ body{
     justify-content: center;
     text-align: center;
     gap: var(--spacing);
+    text-wrap: balance;
 }
 .form {
     background-color: var(--shadow-color);
@@ -291,7 +292,8 @@ h2 {
     font-weight: 700;
     font-size: var(--font-x-large);
     line-height: 1.1;
-    max-width: 36ch;
+    text-wrap: balance;
+    /* max-width: 36ch; */
     text-align: center;
 }
 h3 {
@@ -428,6 +430,7 @@ row {
     padding-block: var(--spacing-quadruple);
     overflow: hidden;
     z-index: 3;
+    text-wrap: balance;
     /* background-color: var(--light-bg-color); */
     &::before {
         position: absolute;
