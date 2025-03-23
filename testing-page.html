@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="/Assets/Fonts/FontAwesome/fontawesome-free-6.7.2-web/css/fontawesome.min.css">
     <link rel="stylesheet" href="/Assets/Fonts/FontAwesome/fontawesome-free-6.7.2-web/css/regular.min.css">
     <link rel="stylesheet" href="/Assets/Fonts/FontAwesome/fontawesome-free-6.7.2-web/css/solid.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="testing-styles.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="/Styles/testing-styles.css">
     
 </head>
+
+
 <body>
-    <header class="header test-header" id="header">
+    <!-- <header class="header test-header" id="header">
         <div class="header-container">
             <nav class="nav">
                 <div class="logo-switch-container">
@@ -95,15 +97,14 @@
                 </div>
             </nav>
         </div>
-    </header>
-    <div class="page-content">
-        <div class="hero-content">
-            <buttons class="buttons">
+    </header> -->
+    
+            <!-- <buttons class="buttons">
                 <div type="button" class="test-btn1"><span>Test-btn1</span></div>    
                 <div type="button" class="test-btn2"><span>Test-btn2</span></div>    
                 
-            </buttons>
-            <div class="social-boxes">
+            </buttons> -->
+            <!-- <div class="social-boxes">
                 <div class="trapdoor">
                     <div class="top door">
                     </div>
@@ -121,13 +122,40 @@
                         </div>
                     </div>
                 </div>
-                <!-- <p><sub>Inspired By : Tim Holman - tholman.com</sub></p> -->
+            </div> -->
+            <!-- <div class="button-wrap">
+                <label for="back-face" class="button">Back</label>
+                <input type="checkbox" name="back-face" id="back-face">
+            </div> -->
+            <div class="cube-wrapper">
+                <div class="button-grid">
+                <label for="back-face" class="button">Rotate to Back</label>
+                <label for="left-face" class="button">Rotate to Left</label>
+                <label for="right-face" class="button">Rotate to Right</label>
+                <label for="top-face" class="button">Rotate to Top</label>
+                <label for="bottom-face" class="button">Rotate to Bottom</label>
+                <label for="front-face" class="button">Rotate to Front</label>
             </div>
-            <div class="wrap">
-                <button class="button">Click Me</button>
-            </div>
-        </div>
-    </div>
+            <input id="back-face" class="hide-show-content" type="radio">
+            <input id="left-face" class="hide-show-content" type="radio">
+            <input id="right-face" class="hide-show-content" type="radio">
+            <input id="top-face" class="hide-show-content" type="radio">
+            <input id="bottom-face" class="hide-show-content" type="radio">
+            <input id="front-face" class="hide-show-content" type="radio">
 
+            <!-- /* Cube Container */ -->
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="face front-face">FRONT</div>
+                    <div class="face back-face">BACK</div>
+                    <div class="face top-face">TOP</div>
+                    <div class="face right-face">RIGHT</div>
+                    <div class="face left-face">LEFT</div>
+                    <div class="face bottom-face">BOTTOM</div>
+                </div>
+            </div>
+
+            </div>
+            
 
 </body>
