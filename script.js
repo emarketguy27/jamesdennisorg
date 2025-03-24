@@ -73,7 +73,7 @@ window.onscroll = function() {
             document.getElementById("header").style.top = "0px";
         };
 
-        if (scrollPercent > 10 && scrollPercent > 80) {
+        if (scrollPercent > 10 && scrollPercent >= 88) {
             document.getElementById("toTop").style.bottom = "80px";
         } else {
             if (scrollPercent > 10 && scrollPercent < 88) {
