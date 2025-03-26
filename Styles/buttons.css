@@ -224,10 +224,10 @@ button.secondary {
 }
 /* Call To Action Button */
 .button.hire-btn {
-    background-color: var(--main-accent-color);
+    background-color: var(--);
     position: relative;
     & span {
-        color: var(--main-text-color);
+        color: var();
         font-weight: 700;
     }
     &:before {
