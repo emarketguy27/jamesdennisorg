@@ -593,6 +593,7 @@ header {
     display: flex;
     align-items: center;
     gap: var(--spacing-half);
+    width: 225px;
     &:hover {
         .site-logo {
             transform: rotate(180deg);
