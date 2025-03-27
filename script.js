@@ -29,12 +29,10 @@ window.addEventListener('pagereveal', async (event) => {
 
 var prevScrollpos = window.pageYOffset;
 const scrollHeight = document.documentElement.scrollHeight;
-console.log(scrollHeight);
+
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
     scrollPercent = ((currentScrollPos / scrollHeight) * 100).toFixed();
-    
-    console.log(scrollPercent);
 
         if (prevScrollpos < currentScrollPos && scrollPercent > 10) {
             document.getElementById("header").style.top = "-80px";

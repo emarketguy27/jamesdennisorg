@@ -121,20 +121,31 @@
                         </div>
                         
                     </container>
-                    <buttons class="buttons">
+                    <buttons class="buttons buttons-top">
                         <div type="button" class="button hire-btn contact-button"><a href="/contact.html"><span>Hire Me</span></a></div>
                         <div type="button" class="button explore-btn"><a href="/services.html"><span>Explore Services</span></a></div>
                     </buttons>
                 </div>
             </div>
             <div class="cta-wrapper-index">
-                <section class="cta-section-index">
-                    <h2>Let's Work Together</h2>
-                    <buttons class="buttons">
-                        <div type="button" class="button hire-btn contact-button"><a href="/contact.html"><span>Hire Me</span></a></div>
-                        <div type="button" class="button explore-btn"><a href="/#webdev"><span>Explore Services</span></a></div>
-                    </buttons>
-                </section>
+                <div class="cube-wrapper">
+                    <section class="cta-section-index">
+                        <h2>Let's Work Together</h2>
+                        <div type="button" class="button hire-btn contact-button button-form"><a href="/contact.html"><span>Hire Me</span></a></div>
+                    </section>
+                    <a href="/services.html" class="cube-link">
+                        <div class="cube-container">
+                            <div class="cube">
+                                <div class="face front-face">Web Dev</div>
+                                <div class="face back-face">WordPress Dev</div>
+                                <div class="face top-face"></div>
+                                <div class="face right-face">SEO Audits</div>
+                                <div class="face left-face">Mobile Apps</div>
+                                <div class="face bottom-face"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -183,6 +194,37 @@
         <script src="script.js"></script>
         <script src="/Scripts/gsap.js"></script>
         <script src="/Scripts/darkmode.js"></script>
+
+        <script>
+        // SPINNING CUBE USER INTERACTIONS
+        const cube = document.querySelector(".cube");
+        const actionBox = document.querySelector(".cube-wrapper");
+        let mouseX = 0;
+        let mouseY = 0;
         
+        const rotationValue = 90;
+
+        const handleMouseMove = (event) => {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+
+            cube.style.animation = "none";
+            rotateX = -(mouseY / cube.clientHeight - 6) * (rotationValue * 2.5);
+            rotateY = -(mouseX / cube.clientWidth) * (rotationValue / 1.2);
+                
+                
+            cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        }
+                
+
+        const handleMouseLeave = (event) => {
+                cube.style.animation = "spin-cube 10s linear infinite";                
+        }
+        
+    
+        actionBox.addEventListener("mousemove", handleMouseMove);
+        actionBox.addEventListener("mouseleave", handleMouseLeave);
+
+        </script>
     </body>
 </html>

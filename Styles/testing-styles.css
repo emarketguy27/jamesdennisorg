@@ -3,19 +3,14 @@
   margin: 0;
   padding: 0;
 }
-
+:root {
+  --cube-width: 200px;
+  --translateZ: 100px;
+}
 body {
   font-family: 'Cairo', sans-serif;
-  background-color: rgba(79,209,197,.64);
-  display: grid;
-  place-content: center;
   min-height: 100vh;
-}
-
-.container {
-  width: 100%;
-  min-height: 100vh;
-  padding: 2em;
+  padding: 1em;
 }
 
 .button-wrap {
@@ -63,7 +58,7 @@ body {
     animation: ring 1.5s infinite;
   } */
 
-  /* @keyframes ring {
+/* @keyframes ring {
     0% {
       width: 30px;
       height: 30px;
@@ -76,80 +71,122 @@ body {
     }
   } */
 
-
-
-  /* Cube Container  */
-  .cube-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* outline: 1px solid red; */
-  }
-  .cube-container {
-    display: flex;
-    flex-direction: column;
-    perspective: 1000px; /* needed for 3D effects */
-    --cube-size: 300px;
-    width: var(--cube-size);
-    height: var(--cube-size);
-    margin-block: 4em;
-    outline: 1px solid;
-  }
-  .button-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  outline: 1px solid;
-}
-  .cube {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d; /* required for 3D effects */
+@keyframes spin-cube {
+  0% {
     transform: rotateX(-20deg) rotateY(20deg);
-    transition: transform 850ms cubic-bezier(1, -.75, 0.5, 1.2);
-    
-    /* Turn the Cube */
-    /* transform: rotateX(-180deg); */
-    /* transform: rotateY(0deg); */
   }
+  25% {
+    transform: rotateX(-20deg) rotateY(110deg);
+  }
+  50% {
+    transform: rotateX(-20deg) rotateY(200deg);
+  }
+  75% {
+    transform: rotateX(-20deg) rotateY(290deg);
+  }
+  100% {
+    transform: rotateX(-20deg) rotateY(380deg);
+  }
+}
 
-  /* Faces */
-  .face {
-    position: absolute;
-    width: var(--cube-size);
-    height: var(--cube-size);
-    border: 1px solid darkgray;
-    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1);
-    line-height: var(--cube-size);
-    text-align: center;
-    font-size: 1.25rem;
-    background-color: rgba(142, 142, 142, 0.8);
-  }
-  .front-face {
-      transform: translateZ(150px);
-    }
-  .back-face {
-    transform: rotateY(180deg) translateZ(150px);
-  }
-  .top-face {
-    transform: rotateX(90deg) translateZ(150px);
-  }
-  .right-face {
-    transform: rotateY(90deg) translateZ(150px);
-  }
-  .left-face {
-    transform: rotateY(-90deg) translateZ(150px);
-  }
-  .bottom-face {
-    transform: rotateX(-90deg) translateZ(150px);
-  }
+/* Cube Container  */
+/* .button-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1rem;
+outline: 1px solid;
+} */
 
 
-.hide-show-content {
-    display: none;
+.cube-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-block: 3em;
+  align-items: center;
+  outline: 1px solid blue;
+}
+.cube-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  perspective: 1000px;
+  margin-block: 4em;
+  .cube {
+    width: var(--cube-width);
+    height: var(--cube-width);
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(20deg);
+    animation: spin-cube 10s linear infinite;
+    /* transition: transform .3s ease; */
   }
+}
+.cube-title {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Faces */
+.face {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cube-width);
+  height: var(--cube-width);
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 2.25rem;
+  padding: .5em;
+  color: antiquewhite;
+}
+.front-face {
+  background: url(/Assets/Images/Backgrounds/MainBG2.jpg);
+  background-size: cover;
+  /* background-color: pink; */
+  /* color: #4099FF; */
+  transform: translateZ(var(--translateZ));
+  }
+.back-face {
+  background: url(/Assets/Images/Backgrounds/MainBG2.jpg);
+  background-size: cover;
+  /* background-color: red; */
+  /* color: #4099FF; */
+  transform: rotateY(180deg) translateZ(var(--translateZ));
+}
+.top-face {
+  background: url(/Assets/Images/JDLogo.png);
+  background-size: cover;
+  background-color: #171717;
+  /* color: #4099FF; */
+  transform: rotateX(90deg) translateZ(var(--translateZ));
+}
+.right-face {
+  background: url(/Assets/Images/Backgrounds/MainBG1.jpg);
+  background-size: cover;
+  /* background-color: blue; */
+  /* color: #4099FF; */
+  transform: rotateY(90deg) translateZ(var(--translateZ));
+}
+.left-face {
+  background: url(/Assets/Images/Backgrounds/MainBG1.jpg);
+  background-size: cover;
+  /* background-color: green; */
+  /* color: #4099FF; */
+  transform: rotateY(-90deg) translateZ(var(--translateZ));
+}
+.bottom-face {
+  background: url(/Assets/Images/JDLogo.png);
+  background-size: cover;
+  background-color: #171717;
+  transform: rotateX(-90deg) translateZ(var(--translateZ));
+}
+
+
 #back-face:checked ~ .cube-container .cube {
   transform: rotateY(180deg);
 }
@@ -263,11 +300,19 @@ body {
 }
 
 
-
+.social-container {
+  position: relative;
+  margin-block: 3em;
+  width: 100%;
+  height: 100%;
+  outline: 1px solid green;
+}
 .trapdoor {
-  -webkit-transform: translateZ(0px);
-  -webkit-font-smoothing: antialiased;
   position: absolute;
+  margin-block: 5em;
+  -webkit-transform: translateZ(0px);
+  transform: translateZ(0px);
+  -webkit-font-smoothing: antialiased;
   top: 50%;
   left: 50%;
   margin-left: -100px;
@@ -341,7 +386,7 @@ body {
   -ms-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
-  background-color: #fff;
+  background-color: #17171f;
   position: absolute;
   overflow: hidden;
   width: 100%;
