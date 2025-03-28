@@ -113,9 +113,9 @@ background-color: var(--color-accent-light);
      
 
 /* ---------- View Transitions ---------- */
-@view-transition {
+/* @view-transition {
 	navigation: auto;
-}
+} */
 @keyframes slide-out {
     0% {
       transform: translateX(0%);
@@ -750,7 +750,6 @@ color: var(--main-bg-color-alt);
     }
 
     /* ---------- Services Page ---------- */
-
     .services-container, .webdev-container, .wordpress-container, .mobile_app-container, .seo-container {
         display: flex;
         flex-direction: column;
@@ -1705,37 +1704,31 @@ button[type="submit"] {
             align-items: center;
             width: 96%;
             .footer-links {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                column-gap: .5rem;
-                row-gap: 10px;
-                width: 15%;
+                column-count: 2;
                 & a {
-                    opacity: 0.7;
+                    color: var(--color-accent);
                     font-size: 12px;
                     font-weight: 600;
                     &:hover {
-                        opacity: 1;
+                        color: var(--color-accent-light);
                     }
                 }
             }
             .footer-site-logo {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
                 justify-content: center;
                 gap: var(--spacing-half);
                 scale: 1;
-                flex-grow: 1;
             }
             .footer-socials {
                 display: grid;
-                width: 15%;
-                max-width: 180px;
                 grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
                 place-content: center;
                 place-items: center;
-                row-gap: .5em;
+                gap: 4px;
                 & a {
                     width: 1.3rem;
                     height: 1.3rem;
@@ -1789,7 +1782,7 @@ button[type="submit"] {
                         };   
                     };
                     &:hover {
-                        opacity: 1;
+                        color: var(--color-accent-light);
                     }
                 }
             }
