@@ -29,6 +29,9 @@ window.addEventListener('pagereveal', async (event) => {
 
 var prevScrollpos = window.pageYOffset;
 const scrollHeight = document.documentElement.scrollHeight;
+// console.log("Height =: " + scrollHeight);
+// console.log("Height =: " + (scrollHeight - 90));
+
 
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
@@ -50,7 +53,8 @@ window.onscroll = function() {
             }
         }
         
-        prevScrollpos = currentScrollPos;  
+        prevScrollpos = currentScrollPos;
+        // console.log(window.pageYOffset);  
     }
 
 

@@ -163,6 +163,9 @@
                             <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo">
                             <p class="logo-text">james dennis</p> 
                         </a>
+                        <div class="copyright-container">
+                            <p class="copyright">copyright: jamesdennis &copy <span><script>document.write(new Date().getFullYear())</script></span></p> 
+                        </div>
                     </div>
                     <div class="footer-socials">
                         <a href="https://linkedin" id="linkedin"></a>
@@ -174,9 +177,7 @@
                     </div>
                 </div>
                 <!-- Copyright -->
-                <div class="copyright-container">
-                        <p class="copyright">copyright: jamesdennis &copy <span><script>document.write(new Date().getFullYear())</script></span></p> 
-                </div>
+                
                 <!-- Scroll To Top -->
                 <div class="scroll-to-top-container" id="toTop">
                     <a href="#top">
@@ -194,10 +195,10 @@
         <script src="/Scripts/gsap.js"></script>
         <script src="/Scripts/darkmode.js"></script>
 
-        <script>
-        // SPINNING CUBE USER INTERACTIONS
+        <script> // SPINNING CUBE USER INTERACTIONS
+        
         const cube = document.querySelector(".cube");
-        const actionBox = document.querySelector(".cube-wrapper");
+        const actionBox = document.querySelector(".cube-link");
         let mouseX = 0;
         let mouseY = 0;
         
@@ -208,8 +209,8 @@
             mouseY = event.clientY;
 
             cube.style.animation = "none";
-            rotateX = -(mouseY / cube.clientHeight - 6) * (rotationValue * 2.5);
-            rotateY = -(mouseX / cube.clientWidth) * (rotationValue / 1.2);
+            rotateX = -(mouseY / cube.clientHeight) * (rotationValue * 2.5);
+            rotateY = (mouseX / cube.clientWidth + 5) * (rotationValue / 1.2);
                 
                 
             cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;

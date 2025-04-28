@@ -74,13 +74,29 @@ background-color: var(--color-accent-light);
     --shadow-bottom: 0px 6px 20px -6px rgba(0,0,0,0.6);
     --shadow-top: 0px -6px 20px -6px rgba(0,0,0,0.6);
 
-    /* Dark mode */
-    /* color-scheme: light dark; */
+    /* --position: 0%; */
+    /* --position {
+        syntax: "<percentage>";
+        inherits: false;
+        initial-value: 0%;
+    } */
 }
 :root, :host {
     --fa-style-family-classic: 'FontAwesome';
     --fa-font-solid: normal 900 1em/1 'FontAwesome';
     --fa-font-brand: normal 400 1em/1 'FontAwesome-brand';
+    --fa-style-family-classic: 'Font Awesome 6 Free';
+    --fa-font-regular: normal 400 1em/1 'Font Awesome 6 Free';
+}
+:root[data-theme="light"] {
+    color-scheme: light;
+    --text: ;
+    --background: ;
+}
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --text: ;
+    --background: ;
 }
 /* COLORS - THEME DARK */
 @media (prefers-color-scheme: dark) {
@@ -212,6 +228,12 @@ header {
     src: url("/Assets/Fonts/FontAwesome/fontawesome-free-6.7.2-web/webfonts/fa-solid-900.woff2");
   }
 @font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.ttf") format("truetype"); }
+@font-face {
     font-family: 'FontAwesome-brand';
     font-style: normal;
     font-weight: 400;
@@ -247,7 +269,6 @@ h2 {
     font-size: var(--font-x-large);
     line-height: 1.1;
     text-wrap: balance;
-    /* max-width: 36ch; */
     text-align: center;
 }
 h3 {
@@ -629,15 +650,24 @@ color: var(--color-icon-green);
 #theme-checkbox + label span:last-of-type {
 color: var(--main-bg-color-alt);
 }
-
-/* Social Box */
-
-
  
 /* Main Pages Content Styles */
+@keyframes text-pulse {
+    0% {
+        letter-spacing: 1px;
+    }
+    50% {
+        letter-spacing: 2px;
+    }
+    100% {
+        letter-spacing: 1px;
+    }
+}
+
 .content-wrapper {
     margin: 0;
     padding: 0;
+    overflow: hidden;
     &::before {
         content: "←     scroll     →";
         position: fixed;
@@ -647,10 +677,10 @@ color: var(--main-bg-color-alt);
         rotate: 180deg;
         letter-spacing: 2px;
         font-size: 12px;
-        /* opacity: 0.4; */
         z-index: 9999;
         color: var(--color-border);
         mix-blend-mode: screen;
+        animation: text-pulse 2s ease infinite;
     }
     &::after {
         content: "←     scroll     →";
@@ -658,13 +688,12 @@ color: var(--main-bg-color-alt);
         right: 10px;
         top: 50vh;
         writing-mode: vertical-lr;
-        /* rotate: 180deg; */
         letter-spacing: 2px;
         font-size: 12px;
-        /* opacity: 0.4; */
         z-index: 9999;
         color: var(--color-border);
         mix-blend-mode: screen;
+        animation: text-pulse 2s ease infinite;
     }
     /* ---------- Home/Index Page ----------- */
     .hero-container {
@@ -721,6 +750,7 @@ color: var(--main-bg-color-alt);
     }
 
     /* ---------- Services Page ---------- */
+
     .services-container, .webdev-container, .wordpress-container, .mobile_app-container, .seo-container {
         display: flex;
         flex-direction: column;
@@ -1017,7 +1047,7 @@ color: var(--main-bg-color-alt);
         &:hover {
             .cube {
             scale: 0.9;
-            transition: scale .7s ease;
+            transition: scale .7s ease-in-out;
             }
             
         }
@@ -1473,6 +1503,7 @@ button[type="submit"] {
     }
   }
 
+/* Social Box */
 .social-container {
     display: flex;
     position: relative;
@@ -1660,7 +1691,7 @@ button[type="submit"] {
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding: var(--spacing-half);
+        padding: var(--spacing-double) var(--spacing-half);
         background-color: var(--main-bg-color-alt);
         box-shadow: var(--shadow-top);
         z-index: 3;
@@ -1674,31 +1705,37 @@ button[type="submit"] {
             align-items: center;
             width: 96%;
             .footer-links {
-                column-count: 2;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: .5rem;
+                row-gap: 10px;
+                width: 15%;
                 & a {
-                    color: var(--color-accent);
+                    opacity: 0.7;
                     font-size: 12px;
                     font-weight: 600;
                     &:hover {
-                        color: var(--color-accent-light);
+                        opacity: 1;
                     }
                 }
             }
             .footer-site-logo {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 gap: var(--spacing-half);
                 scale: 1;
+                flex-grow: 1;
             }
             .footer-socials {
                 display: grid;
+                width: 15%;
+                max-width: 180px;
                 grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(2, 1fr);
                 place-content: center;
                 place-items: center;
-                gap: 4px;
+                row-gap: .5em;
                 & a {
                     width: 1.3rem;
                     height: 1.3rem;
@@ -1752,7 +1789,7 @@ button[type="submit"] {
                         };   
                     };
                     &:hover {
-                        color: var(--color-accent-light);
+                        opacity: 1;
                     }
                 }
             }
@@ -1872,6 +1909,261 @@ button[type="submit"] {
 } */
 
 
-
+/* MASK SLIDE EFFECTS */
+@property --position {
+        syntax: "<percentage>";
+        inherits: false;
+        initial-value: 0%
+    }
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes slider {
+    0% {
+        --position: var(var(--position));
+    }
+    100% {
+        --position: calc(100% + var(--size));
+    }
+}
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+.slide-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-height: 100vh;
+    box-shadow: var(--shadow-bottom);
+    .slide {
+        position: relative;
+        grid-area: 1 / 1;
+        /* block-size: 70vh; */
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-double);
+        & .section-title {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* backdrop-filter: blur(4px); */
+            height: 100%;
+            width: 100%;
+            color: var(--color-accent);
+            text-shadow: 0px 4px 6px #000;
+            &::before {
+                position: absolute;
+                opacity: 0.2;
+            }
+        }
+        .slide-p2-wrapper {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-double);
+            .page-subtitle {
+                text-shadow: 0px 4px 6px #000;
+            }
+            .slide-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-items: center;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+                gap: var(--spacing);
+                .card-wrapper {
+                    columns: 2 340px;
+                    width: 100%;
+                    place-content: center;
+                    column-gap: var(--spacing);
+                    gap: 2em;
+                    padding-block: 2em;
+                    .card-outliner {
+                        --angle: 0deg;
+                        display: block;
+                        margin-bottom: var(--spacing-double);
+                        width: 340px;
+                        aspect-ratio: 16/9;
+                        box-shadow: var(--shadow-bottom);
+                        background-color: var(--main-bg-color-alt);
+                        position: relative;
+                        align-content: center;
+                        padding: 1px;
+                        border-radius: 1.5em;
+                        transition: all .3s ease;
+                        mix-blend-mode: exclusion;
+                        &::after, &::before {
+                            content: "";
+                            position: absolute;
+                            width: 340px;
+                            aspect-ratio: 16/9;
+                            inset: 0;
+                            border-radius: 1.5em;
+                            z-index: -1;
+                        }
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 340px;
+                            aspect-ratio: 16/9;
+                            inset: 0;
+                            border-radius: 1.5em;
+                            z-index: -1;
+                            filter: blur(1rem);
+                            opacity: 0.3;
+                        }
+                        &:hover {
+                            background-color: transparent;
+                            scale: 1.03;
+                            mix-blend-mode: lighten;
+                            &::after {
+                                background-image: conic-gradient(from var(--angle), transparent 90%, var(--color-accent));
+                                animation: 3s spin linear infinite;
+                            }
+                            &::before {
+                                /* background-image: conic-gradient(from var(--angle), var(--color-accent), blue, var(--color-border)); */
+                                /* animation: 3s spin linear infinite; */
+                            }
+                        }
+                    }
+                    .small-card {
+                        /* display: block; */
+                        margin-inline: auto;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 1.5em;
+                        align-content: center;
+                        background-color: hsla(0, 0%, 0%, 0.8);
+                    }
+                    /* .small-card:nth-child(1) {
+                        background: url(/Assets/Images/Content/design.jpg);
+                        background-size: cover;
+                    }
+                    .small-card:nth-child(2) {
+                        background: url(/Assets/Images/Content/code.jpg);
+                        background-size: cover; 
+                    }
+                    .small-card:nth-child(3) {
+                        background: url(/Assets/Images/Content/laptop.jpg);
+                        background-size: cover; 
+                    }
+                    .small-card:nth-child(4) {
+                        background: url(/Assets/Images/Content/wordpress-t-shirt.jpg);
+                        background-size: cover; 
+                    } */
+                }
+            }
+            
+            .slide-links a {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                border-radius: 1.5em;
+                gap: var(--spacing-half);
+                padding-inline: var(--spacing);
+                background-color: hsla(0, 0%, 0%, 0.8);
+                transition: all .3s ease;
+                cursor: url(/Assets/Images/Icons/cursor-32.png), pointer;
+                position: relative;
+                &::before {
+                    font: var(--fa-font-solid);
+                    font-weight: 400;
+                    font-size: 3rem;
+                    color: var(--color-accent);
+                    text-shadow: 2px 2px 3px #000;
+                    transition: all .3s ease;
+                }
+                &::after {
+                    position: absolute;
+                    content: "";
+                    inset: 0;
+                    background: linear-gradient(270deg, rgba(23, 20, 31, 0.875) 0%, rgba(23, 20, 31, 1) 30%, rgba(23, 20, 31, 1) 70%, rgba(23, 20, 31, 0.8842592592592593) 100%);
+                    mix-blend-mode: soft-light;
+                    border-radius: 1.5em;
+                }
+                &:hover {
+                    text-shadow: 0px 2px 3px #000;
+                    background-color: hsla(0, 0%, 0%, 0.6);
+                }
+            }
+            #slide-link-1 {
+                background-image: url(/Assets/Images/Content/design.jpg);
+                background-size: cover;
+                    &::before {
+                    content: "\f5c3";
+                }     
+            }
+            #slide-link-2 {
+                background-image: url(/Assets/Images/Content/code.jpg);
+                background-size: cover;
+                    &::before {
+                    content: "\e58a";
+                }     
+            }
+            #slide-link-3 {
+                background-image: url(/Assets/Images/Content/laptop.jpg);
+                background-size: cover;
+                    &::before {
+                    content: "\f5af";
+                }     
+            }
+            #slide-link-4 {
+                background-image: url(/Assets/Images/Content/wordpress-t-shirt.jpg);
+                background-size: cover;
+                    &::before {
+                    content: "\f4fe";
+                }     
+            }
+        }
+        
+    }
+    .slide:nth-child(1) {
+        background: url(/Assets/Images/Content/laptop.jpg);
+        /* background: var(--main-bg-color-alt); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        mask-image: linear-gradient(90deg,#000 calc(var(--position) - var(--size)),#0000 calc(var(--position)));
+        cursor: pointer;
+    }
+    .slide:nth-child(2) {
+        /* background: url(/Assets/Images/Content/laptop.jpg); */
+        background: var(--main-bg-color-alt);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        --size: 40%;
+        mask-image: linear-gradient(90deg,#000 calc(var(--position) - var(--size)),#0000 calc(var(--position)));
+        transition: --position .75s ease-in-out;
+        transition-delay: .3s;
+        cursor: pointer;
+        /* animation: slider 3.75s ease-in-out 1 forwards;
+        animation-play-state: paused;
+        animation-delay: .2s; */
+        &:hover {
+            --position: calc(100% + var(--size));
+            /* animation-play-state: running; */
+        }
+    }
+}
 
 
