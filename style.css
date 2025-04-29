@@ -820,8 +820,6 @@ color: var(--main-bg-color-alt);
         }
     }
     .services-wrapper {
-        /* background: var(--bg-gradient-light); */
-        /* color: var(--color-text); */
         min-height: calc(100vh - var(--footer-height));
         min-height: 100vh;
         padding-block: var(--spacing-quadruple);
@@ -1018,14 +1016,32 @@ color: var(--main-bg-color-alt);
         display: flex;
         justify-content: center;
         align-items: center;
+        height: calc(100vh - var(--footer-height)); 
         .cta-section-index {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 50%;
+            width: 60%;
             text-align: center;
-            gap: var(--spacing-double);
+            gap: var(--spacing);
+            text-wrap: balance;
+            h2 {
+                margin-top: 0;
+            }
+            h3 {
+                margin-top: 0; 
+            }
+            h4 {
+                margin-bottom: 0;
+            }
+            p {
+                font-size: var(--font-large);
+            }
+            /* .button {
+                transform: translateY(-200%);
+                opacity: 0;
+            } */
         }
     }
 
@@ -1136,7 +1152,9 @@ color: var(--main-bg-color-alt);
                   height: 100%;
                   padding: var(--spacing-triple);
                   mask: linear-gradient(0deg,transparent, rgb(0, 0, 0) 10%,rgb(0, 0, 0) 90%,transparent);
-                  border-left: 1px solid var(--color-span);
+                  border: 1px solid var(--color-span);
+                  /* box-shadow: inset 0px -8px 20px 4px black; */
+                  overflow: hidden;
                   p {
                     padding: 0;
                     text-align: center;
@@ -1504,7 +1522,7 @@ color: var(--main-bg-color-alt);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 50%;
+        width: 40%;
         padding-block: var(--spacing-double);
         transition: scale .7s ease .3s;
         &:hover {
