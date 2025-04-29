@@ -19,7 +19,30 @@
     
 </head>
     <body>
-        <header class="header test-header" id="header">
+        <div class="loader-container" style="position: fixed; width: 100%; height: 100vh; z-index: 9999; display: flex;">
+            <h3 class="load-text" style="position: fixed; top: 50%; width: 100%; display: none; place-items: center; margin-inline: auto">jamesdennis.org</h3>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+        </div>
+        <header class="header" id="header">
             <div class="header-container">
                 <nav class="nav">
                     <div class="logo-switch-container">
@@ -100,39 +123,89 @@
         </header>
 
         <div class="content-wrapper" id="top">
-            <div class="slide-wrapper">
-                <div class="slide slide1">
-                    <div class="section-title webdev-title">
-                        <h1 class="heading page-title">Web Development</h1>
-                    </div> 
+            <div class="services-wrapper services wrap-with-fade gsap-div-services" id="services">
+                <span class="scroll-icon-2">+</span>
+                <h1>Freelance Services</h1>
+                <!-- <h3>A selection of core skillbase areas of expertise</h3> -->
+                <div class="images-grid">
+                    <p>A selection of core skillbase areas of expertise</p>
+                    <div class="thumbnail item" 
+                    data-title="Website Design Services" 
+                    data-secondary="A website should work for you—not against you." 
+                    data-text="Poor design drives users away.
+                    With strategic layouts, intuitive navigation, and visual storytelling, I build sites that engage visitors and align with your goals.
+
+                    Key Skills: User-centric design, wireframing, prototyping, conversion optimization.">
+                        <span class="thumb-title">01</span>
+                        <img src="/Assets/Images/Content/design.png" alt="" class="thumbnail-image">
+                        <div class="thumbnail-overlay"></div>
+                    </div>
+
+                    <div class="thumbnail item" 
+                    data-title="Respnsive Design" 
+                    data-secondary="If it doesn’t adapt, it’s broken." 
+                    data-text="Over 60% of web traffic comes from mobile, yet many sites still fail on smaller screens. I ensure seamless functionality and aesthetics across all devices—no exceptions.
+
+                    Key Skills: Fluid grids, breakpoint optimization, cross-browser testing, performance-first CSS.">
+                        <span class="thumb-title">02</span>
+                        <img src="/Assets/Images/Content/iOS-app-3_2.png" alt="" class="thumbnail-image">
+                        <div class="thumbnail-overlay"></div>
+                    </div>
+
+                    <div class="thumbnail item" 
+                    data-title="Mobile App Development" 
+                    data-secondary="Mobile users demand speed and simplicity." 
+                    data-text="A clunky app kills retention. Using native (Swift, Kotlin) or cross-platform tools (Flutter, React Native), I build apps that feel effortless and solve real problems.
+
+                    Key Skills: UI/UX for touch, API integration, offline functionality, store compliance.">
+                        <span class="thumb-title">03</span>
+                        <img src="/Assets/Images/Content/mobile-app-purple.png" alt="" class="thumbnail-image">
+                        <div class="thumbnail-overlay"></div>
+                    </div>
+
+                    <div class="thumbnail item" 
+                    data-title="SEO Optimization" 
+                    data-secondary="Visibility isn’t luck—it’s engineering." 
+                    data-text="Even great content gets lost without technical SEO. I fix crawl errors, optimize metadata, and structure sites to rank higher—so you attract organic traffic, not just hope for it.
+
+                    Key Skills: Keyword strategy, on-page SEO, schema markup, Core Web Vitals.">
+                        <span class="thumb-title">04</span>
+                        <img src="/Assets/Images/Content/analytics-mobile.png" alt="" class="thumbnail-image">
+                        <div class="thumbnail-overlay"></div>
+                    </div>
+
+                    <div class="thumbnail item" 
+                    data-title="WordPress Development" 
+                    data-secondary="WordPress is powerful—when it’s not fighting you." 
+                    data-text="Slow plugins, bloated themes, and security gaps plague DIY sites. I develop custom, lightweight WordPress solutions that prioritize speed, security, and ease of use.
+
+                    Key Skills: Custom themes, headless WP, performance tuning, security hardening.">
+                        <span class="thumb-title">05</span>
+                        <img src="/Assets/Images/Content/wordpress-creating.png" alt="" class="thumbnail-image">
+                        <div class="thumbnail-overlay"></div>
+                    </div>
+
+                    <div class="thumbnail item" 
+                    data-title="WordPress Plugin Dev" 
+                    data-secondary="Off-the-shelf plugins often mean compromises." 
+                    data-text="Need features that don’t exist—or hate paying for subscriptions? I build bespoke plugins tailored to your workflow, without unnecessary bloat or licensing fees.
+
+                    Key Skills: PHP, hooks/filters, database optimization, scalable architecture.">
+                        <span class="thumb-title">06</span>
+                        <img src="/Assets/Images/Content/wordpress-plugins.png" alt="" class="thumbnail-image">
+                        <div class="thumbnail-overlay"></div>
+                    </div>
                 </div>
-                <div class="slide slide2">
-                    <div class="slide-p2-wrapper">
-                        <h2 class="page-subtitle">Building Your Digital Presence...</h2>
-                        <div class="slide-links">
-                            <div class="card-wrapper">
-                                <div class="card-outliner">
-                                    <div class="small-card s-c-1"><a href="#" id="slide-link-1">UI / UX Design</a></div>
-                                </div>
-                                <div class="card-outliner">
-                                    <div class="small-card s-c-2"><a href="#" id="slide-link-2">Full Build</a></div>
-                                </div>
-                                <div class="card-outliner">
-                                    <div class="small-card s-c-3"><a href="#" id="slide-link-3">Landing Pages</a></div>
-                                </div>
-                                <div class="card-outliner">
-                                    <div class="small-card s-c-4"><a href="#" id="slide-link-4">Virtual Assistant</a></div>
-                                </div>    
-                            </div>
-                        </div>
-                        
+                <div class="detail">
+                    <img />
+                    <div class="content">
+                        <h2 class="title">Placeholder title</h2>
+                        <h3 class="secondary">Placeholder secondary</h3>
+                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure cum, est amet delectus, blanditiis voluptatem laborum pariatur consequatur quae voluptate, nisi. Laborum adipisci iste earum distinctio, fugit, quas ipsa impedit.</p>
                     </div>
                 </div>
             </div>
             
-
-
-
             <section class="content-section webdev-container" id="webdev">
                 <div class="section-title webdev-title">
                     <h1 class="heading page-title">Web Development</h1>
@@ -140,55 +213,62 @@
                         <h2 class="page-subtitle">Building Your Digital Presence...</h2>
                     </container>
                 </div>
-                <div class="services grid-layout">
-                    <div class="service-card card1">
-                        <img src="/Assets/Images/Content/design.jpg" alt="">
-                        <div class="card-content">
-                            <div class="service-name">
-                            <h3 class="card-title">UI / UX Design</h3>   
-                            </div>
-                            <p><strong>Transforming Ideas into User-Loved Experiences</strong></p>                            
-                            <p>Because your website deserves designs that not only look stunning but feel effortless to use.</p>
+                <div class="services-wrapper profile wrap-with-fade gsap-div-profile" id="profile">
+                    <span class="scroll-icon-2">+</span>
+                    <h2>Core capabilities and services</h2>
+                    <div class="spacer"></div>
+                    <div class="service-list">
+                        <div class="left-container">
+                            <div class="item-left">
+                            <span class="number">01</span>
+                            <h3 class="headline">Design That Feels Intuitive, Not Forced</h3>
+                          </div>
+                            <div class="item-left">
+                            <span class="number">02</span>
+                            <h3 class="headline">Visual Storytelling That Hooks Visitors</h3>
+                          </div>
+                            <div class="item-left">
+                            <span class="number">03</span>
+                            <h3 class="headline">Optimised UX That Converts Browsers</h3>
+                          </div>
+                            <div class="item-left">
+                            <span class="number">04</span>
+                            <h3 class="headline">Backend Harmony, Frontend Magic</h3>
+                          </div>
                         </div>
-                        
-                    </div>
-                    <div class="service-card card2">
-                        <img src="/Assets/Images/Content/code.jpg" alt="">
-                        <div class="card-content">
-                            <div class="service-name">
-                            <h3 class="card-title">Customised Function</h3>  
+                        <div class="right-container">
+                            <div class="item-right">
+                                <div class="item-content">
+                                    <p>From wireframes to flawless launches—and updates that keep your site feeling fresh.</p>
+                                    <h4>See My Process</h4>
+                                    <button>Audit My UI<span>🎯→✨</span></button>
+                                </div>
                             </div>
-                            <p><strong>Tailored Solutions That Work as Hard as You Do</strong></p>
-                            <p>Because your business is unique, and your website should be too—built to fit your exact needs and goals.</p>
+                            <div class="item-right">
+                                <div class="item-content">
+                                    <p>Your brand isn’t just colors and fonts—it’s an emotion. Let’s make it unforgettable</p>
+                                    <h4>View Portfolio</h4>
+                                    <button>Steal My Style Guide Tips<span>🖌️→🎥</span></button>
+                                </div>
+                            </div>
+                            <div class="item-right">
+                                <div class="item-content">
+                                   <p>Smooth flows, fewer frustrations, more ‘Hell Yes’ moments for your users.</p>
+                                    <h4>Where's Your UX Losing Users...?</h4>
+                                    <button>Fix My Friction Points<span>📉→📈</span></button> 
+                                </div>
+                            </div>
+                            <div class="item-right">
+                                <div class="item-content">
+                                    <p>APIs that talk, databases that perform, and zero ‘Oops, it crashed’ moments.</p>
+                                    <h4>Tech Stack I Love</h4>
+                                    <button>Does My Site Need A Backend Boost...?<span>⚙️→🤖</span></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="service-card card3">
-                        <img src="/Assets/Images/Content/laptop.jpg" alt="">
-                        <div class="card-content">
-                            <div class="service-name">
-                            <h3 class="card-title">Virtual Assistant</h3>
-                            </div>
-                            <p><strong>Your On-Demand Web Expert, Always Ready to Deliver</strong></p>
-                            <p>Skip the hiring hassle—get a skilled professional who integrates seamlessly into your workflow.</p>
-                        </div>
-                    </div>
-                    <div class="service-card card4">
-                        <img src="/Assets/Images/Backgrounds/HeroBG.png" alt="">
-                        <div class="card-content">
-                            <div class="service-name">
-                            <h3 class="card-title">Flexibility</h3>
-                            </div>
-                            <p><strong>Every Project Matters—Big or Small, I Do It All</strong></p>
-                            <p>Because even the smallest tasks deserve expert care and attention to detail.</p>
-                        </div>
-                                                   
-                        
-                    </div>
+                    <div class="spacer"></div>
                 </div>
-                <buttons class="buttons buttons-top">
-                    <div type="button" class="button hire-btn"><a href="/contact.html"><span>Get a Quote</span></a></div>
-                    <div type="button" class="button explore-btn"><a href="#wordpress"><span>WordPress</span></a></div>
-                </buttons>
             </section>
 
             <div class="cta-wrapper">
@@ -205,7 +285,7 @@
                             <h2>Building Your Digital Presence...</h2>
                         </container>
                     </div>
-                    <div class="services grid-layout">
+                    <!-- <div class="services grid-layout">
                         <div class="service-card">
                             <img src="/Assets/Images/Content/wordpress-com.jpg" alt="">
                             <div class="card-content">
@@ -246,7 +326,7 @@
                                 <p>Optimize your website to rank higher on search engines.</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <buttons class="buttons">
                         <div type="button" class="button hire-btn"><a href="/contact.html"><span>Get a Quote</span></a></div>
                         <div type="button" class="button explore-btn"><a href="#mobile_app"><span>Mobile Apps</span></a></div>
@@ -267,7 +347,7 @@
                             <h2>Building Your Digital Presence...</h2>
                         </container>
                     </div>
-                    <div class="services grid-layout">
+                    <!-- <div class="services grid-layout">
                         <div class="service-card">
                             <img src="/Assets/Images/Content/mobile-app-dark-2.jpg" alt="">
                             <div class="card-content">
@@ -308,7 +388,7 @@
                                 <p>Optimize your website to rank higher on search engines.</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <buttons class="buttons">
                         <div type="button" class="button hire-btn"><a href="/contact.html"><span>Get a Quote</span></a></div>
                         <div type="button" class="button explore-btn"><a href="#seo"><span>SEO Services</span></a></div>
@@ -329,7 +409,7 @@
                         <h2>Building Your Digital Presence...</h2>
                     </container>
                 </div>
-                <div class="services grid-layout">
+                <!-- <div class="services grid-layout">
                     <div class="service-card">
                         <img src="/Assets/Images/Content/analytics.jpg" alt="">
                         <div class="card-content">
@@ -370,7 +450,7 @@
                             <p>Optimize your website to rank higher on search engines.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div type="button" class="button hire-btn"><a href="/contact.html"><span>Get a Quote</span></a></div>
             </section>
 
@@ -397,34 +477,35 @@
                 </section> 
             </div>
         </div>
+
         <div class="footer-wrapper">
             <footer class="footer">
-                <!-- Standard Footer -->
                 <div class="standard-layout">
-                    <div class="footer-links">
-                        <a href="/">Home</a>
-                        <a href="#">About</a>
-                        <a href="#">Services</a>
-                        <a href="/contact.html">Contact</a>
-                    </div>
                     <div class="footer-site-logo">
                         <a href="/" class="logo-title">
                             <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo">
                             <p class="logo-text">james dennis</p> 
                         </a>
                     </div>
-                    <div class="footer-socials">
-                        <a href="https://linkedin" id="linkedin"></a>
-                        <a href="https://facebook" id="facebook"></a>
-                        <a href="https://instagram" id="instagram"></a>
-                        <a href="https://X" id="xcom"></a>
-                        <a href="https://github.com" id="github"></a>
-                        <a href="https://telegram.com" id="telegram"></a>
-                    </div>
-                </div>
-                <!-- Copyright -->
-                <div class="copyright-container">
-                        <p class="copyright">copyright: jamesdennis &copy <span><script>document.write(new Date().getFullYear())</script></span></p> 
+                    <div class="contact-row">
+                        <div class="hire-me">
+                            <h2>Hire Me:</h2>
+                        </div>
+                        <div class="contact-details-row">
+                            <div class="contact-box availability">
+                                <h3>Available for hire:</h3>
+                                <p><span id="datetime"></span></p>
+                            </div>
+                            <div class="contact-box contact">
+                                <h3>Contact:</h3>
+                                <p><a href="mailto:james@jamesdennis.org">james@jamesdennis.org</a></p>
+                            </div>
+                            <div class="contact-box copyright">
+                                <h3>Copyright:</h3>
+                                <p>jamesdennis &copy <span><script>document.write(new Date().getFullYear())</script></span></p>
+                            </div>
+                        </div> 
+                    </div>  
                 </div>
                 <!-- Scroll To Top -->
                 <div class="scroll-to-top-container" id="toTop">
@@ -436,12 +517,125 @@
         </div>
         
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js" integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js" integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script> // Date - Time script
+            function dateTime() {
+                // Get current date and time
+            const date = new Date();
+            const years = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+            const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(date);
+            datetime = month + " " + years;
+            currentYear = years;
+            // Set the copyright year
+            document.querySelector('.copyright p').innerHTML = "© " + currentYear + " James Dennis";
+            // Display the date and time in the element with id="datetime"
+            document.getElementById("datetime").innerHTML = datetime;
+            }
+            dateTime();
+        </script> 
+        <script src="https://unpkg.com/split-type"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Flip.min.js"></script>
         <script src="script.js"></script>
+        <script src="/Scripts/services.js"></script>
         <script src="/Scripts/gsap.js"></script>
         <script src="/Scripts/darkmode.js"></script>
-        
+        <script> // Entry Animations
+            function serviceLoadingAnimation() {
+                let targets = gsap.utils.toArray(".images-grid .item");
+                let entryTl = gsap.timeline();
+                const loader = document.querySelector('.loader-container');
+                const bars = document.querySelectorAll('.bar');
+
+                gsap.set(".load-text", {
+                    display: "grid",
+                });
+                gsap.set(".header", {
+                    yPercent: -100,
+                });
+                gsap.set(loader, {
+                    height: "100%",
+                });
+                gsap.set(bars, {
+                    height: '100%',
+                });
+                gsap.to('.load-text', {
+                    yPercent: 100,
+                    opacity: 0,
+                    delay: .9,
+                    display: "none",
+                })
+                gsap.to(bars, {
+                    duration: .5,
+                    height: 0,
+                    stagger: {
+                        from: "center",
+                        amount: 0.5,
+                    },
+                    delay: 1,
+                    ease: "power4.inOut",
+                })
+                gsap.to(loader, {
+                    duration: 1,
+                    height: 0,
+                    delay: 1,
+                }, "<");
+
+                const headline = new SplitType("h1", {
+                    type: "lines",
+                });
+
+                headline.lines.forEach((line) => {
+                    const content = line.innerHTML;
+                    line.innerHTML = `<span>${content}</span>`;
+                });
+                gsap.set("h1 .line span", {
+                    display: "block",
+                })
+                gsap.set("h1 .char", {
+                    opacity: 0.05,
+                });
+                gsap.set(".images-grid p", {
+                    opacity: 0,
+                })
+                gsap.from("h1 .line span", {
+                    yPercent: 200,
+                    opacity: 0,
+                }, "<");
+                gsap.to("h1 .char", {
+                    opacity: 1,
+                    duration: 1,
+                    stagger: 0.075,
+                }, ">");
+                gsap.to(".images-grid p", {
+                    opacity: 1,
+                    duration: .7,
+                }, "<+=.5")
+                gsap.to(".header", {
+                    yPercent: 0,
+                    ease: "bounce.out",
+                }, "<+=.7");
+
+                // Services Grid
+                targets.forEach(target => {
+                    gsap.set(target, {
+                        yPercent: 50,
+                        opacity: 0,
+                        // duration: .8,
+                        // delay: 1.9,
+                        // stagger: 1,
+                    })
+                });
+                gsap.to(".images-grid .item", {
+                    yPercent: 0,
+                    opacity: 1,
+                    delay: 3.5,
+                    duration: .5,
+                    stagger: .3,
+                    ease: "bounce.out",
+                });
+            }
+            serviceLoadingAnimation();
+        </script>
     </body>
 </html>

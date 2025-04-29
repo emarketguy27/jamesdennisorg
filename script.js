@@ -29,18 +29,17 @@ window.addEventListener('pagereveal', async (event) => {
 
 var prevScrollpos = window.pageYOffset;
 const scrollHeight = document.documentElement.scrollHeight;
-// console.log("Height =: " + scrollHeight);
-// console.log("Height =: " + (scrollHeight - 90));
-
 
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
     scrollPercent = ((currentScrollPos / scrollHeight) * 100).toFixed();
 
         if (prevScrollpos < currentScrollPos && scrollPercent > 10) {
-            document.getElementById("header").style.top = "-80px";
+            // document.getElementById("header").style.top = "-80px";
+            document.getElementById("header").classList.add("hidden");
         } else {
-            document.getElementById("header").style.top = "0px";
+            // document.getElementById("header").style.top = "0px";
+            document.getElementById("header").classList.remove("hidden");
         };
 
         if (scrollPercent > 10 && scrollPercent >= 88) {

@@ -17,11 +17,11 @@
 
 
 <body>
-    <div class="cube-wrapper">
+    <!-- <div class="cube-wrapper">
         <div class="cube-title">
             <h2>The Spinning Cube</h2>
             <h3>Mouse Over to move the cube...</h3>
-        </div>
+        </div> -->
 
         <!-- <div class="button-grid">
             <label for="back-face" class="button">Rotate to Back</label>
@@ -37,7 +37,7 @@
             <input id="top-face" class="hide-show-content" type="radio">
             <input id="bottom-face" class="hide-show-content" type="radio">
             <input id="front-face" class="hide-show-content" type="radio"> -->
-        <div class="cube-container">
+        <!-- <div class="cube-container">
             <div class="cube">
                 <div class="face front-face">Web Dev</div>
                 <div class="face back-face">WordPress Dev</div>
@@ -46,10 +46,10 @@
                 <div class="face left-face">Mobile Apps</div>
                 <div class="face bottom-face"></div>
             </div>
-        </div>
-    </div>
+        </div> -->
+    <!-- </div> -->
 
-    <div class="card-wrapper">
+    <!-- <div class="card-wrapper">
         <div class="small-card s-c-1">
             <a href="#" id="slide-link-1">
                 <h4>UI / UX Design</h4>
@@ -60,8 +60,66 @@
                 <h4>UI / UX Design</h4>
             </a>
         </div> 
-     </div>
+     </div> -->
 
+     <div class="services-wrapper services wrap-with-fade gsap-div-services" id="services">
+        <span class="scroll-icon-2">+</span>
+        <h2>Freelance Services</h2>
+        <!-- <h3>A selection of core skillbase areas of expertise</h3> -->
+        <div class="images-grid">
+            <p>A selection of core skillbase areas of expertise</p>
+            <div class="thumbnail item" data-title="Website Design Services" data-secondary="A website should work for you—not against you." data-text="Poor design drives users away. With strategic layouts, intuitive navigation, and visual storytelling, I build sites that engage visitors and align with your goals.
+
+            Key Skills: User-centric design, wireframing, prototyping, conversion optimization.">
+                <span class="thumb-title">01</span>
+                <img src="/Assets/Images/Content/code.jpg" alt="" class="thumbnail-image">
+                <div class="thumbnail-overlay"></div>
+            </div>
+            <div class="thumbnail item" data-title="Device Agnostic Design" data-secondary="If it doesn’t adapt, it’s broken." data-text="Over 60% of web traffic comes from mobile, yet many sites still fail on smaller screens. I ensure seamless functionality and aesthetics across all devices—no exceptions.
+
+            Key Skills: Fluid grids, breakpoint optimization, cross-browser testing, performance-first CSS.">
+                <span class="thumb-title">02</span>
+                <img src="/Assets/Images/Content/mobile-app-dark.jpg" alt="" class="thumbnail-image">
+                <div class="thumbnail-overlay"></div>
+            </div>
+            <div class="thumbnail item" data-title="Mobile App Development" data-secondary="Mobile users demand speed and simplicity." data-text="A clunky app kills retention. Using native (Swift, Kotlin) or cross-platform tools (Flutter, React Native), I build apps that feel effortless and solve real problems.
+
+            Key Skills: UI/UX for touch, API integration, offline functionality, store compliance.">
+                <span class="thumb-title">03</span>
+                <img src="/Assets/Images/Content/mobile-app-purple.jpg" alt="" class="thumbnail-image">
+                <div class="thumbnail-overlay"></div>
+            </div>
+            <div class="thumbnail item" data-title="SEO Optimization" data-secondary="Visibility isn’t luck—it’s engineering." data-text="Even great content gets lost without technical SEO. I fix crawl errors, optimize metadata, and structure sites to rank higher—so you attract organic traffic, not just hope for it.
+
+            Key Skills: Keyword strategy, on-page SEO, schema markup, Core Web Vitals.">
+                <span class="thumb-title">04</span>
+                <img src="/Assets/Images/Content/design.jpg" alt="" class="thumbnail-image">
+                <div class="thumbnail-overlay"></div>
+            </div>
+            <div class="thumbnail item" data-title="WordPress Development" data-secondary="WordPress is powerful—when it’s not fighting you." data-text="Slow plugins, bloated themes, and security gaps plague DIY sites. I develop custom, lightweight WordPress solutions that prioritize speed, security, and ease of use.
+
+            Key Skills: Custom themes, headless WP, performance tuning, security hardening.">
+                <span class="thumb-title">05</span>
+                <img src="/Assets/Images/Content/wordpress-creating.jpg" alt="" class="thumbnail-image">
+                <div class="thumbnail-overlay"></div>
+            </div>
+            <div class="thumbnail item" data-title="WordPress Plugin Dev" data-secondary="Off-the-shelf plugins often mean compromises." data-text="Need features that don’t exist—or hate paying for subscriptions? I build bespoke plugins tailored to your workflow, without unnecessary bloat or licensing fees.
+
+            Key Skills: PHP, hooks/filters, database optimization, scalable architecture.">
+                <span class="thumb-title">06</span>
+                <img src="/Assets/Images/Content/wordpress-plugins-2.jpg" alt="" class="thumbnail-image">
+                <div class="thumbnail-overlay"></div>
+            </div>
+        </div>
+        <div class="detail">
+            <img />
+            <div class="content">
+                <h2 class="title">Placeholder title</h2>
+                <h3 class="secondary">Placeholder secondary</h3>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure cum, est amet delectus, blanditiis voluptatem laborum pariatur consequatur quae voluptate, nisi. Laborum adipisci iste earum distinctio, fugit, quas ipsa impedit.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- <div class="social-container">
             <div class="trapdoor">
@@ -75,7 +133,7 @@
     </div>  -->
 
 
-    <script>
+    <!-- <script>
         const cube = document.querySelector(".cube");
         const actionBox = document.querySelector(".cube-wrapper");
         let mouseX = 0;
@@ -101,5 +159,10 @@
 
         actionBox.addEventListener("mousemove", handleMouseMove);
         actionBox.addEventListener("mouseleave", handleMouseLeave);
-    </script>
+    </script> -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Flip.min.js"></script>
+    <script src="/Scripts/gsap.js"></script>
 </body>
