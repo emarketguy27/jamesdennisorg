@@ -142,7 +142,7 @@
                     </div>
 
                     <div class="thumbnail item" 
-                    data-title="Respnsive Design" 
+                    data-title="Responsive Design" 
                     data-secondary="If it doesn’t adapt, it’s broken." 
                     data-text="Over 60% of web traffic comes from mobile, yet many sites still fail on smaller screens. I ensure seamless functionality and aesthetics across all devices—no exceptions.
 
@@ -208,15 +208,15 @@
             
             <section class="content-section webdev-container" id="webdev">
                 <div class="section-title webdev-title">
-                    <h1 class="heading page-title">Web Development</h1>
+                    <h2 class="heading page-title">Web Development</h2>
                     <container class="headings-group">
-                        <h2 class="page-subtitle">Building Your Digital Presence...</h2>
+                        <h3 class="page-subtitle">Building Your Digital Presence...</h3 >
                     </container>
                 </div>
                 <div class="services-wrapper profile wrap-with-fade gsap-div-profile" id="profile">
-                    <span class="scroll-icon-2">+</span>
-                    <h2>Core capabilities and services</h2>
-                    <div class="spacer"></div>
+                    <!-- <span class="scroll-icon-2">+</span> -->
+                    <h2 class="core-title">Core capabilities and services</h2>
+                    <!-- <div class="spacer"></div> -->
                     <div class="service-list">
                         <div class="left-container">
                             <div class="item-left">
@@ -267,7 +267,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="spacer"></div>
+                    <!-- <div class="spacer"></div> -->
                 </div>
             </section>
 
@@ -280,9 +280,9 @@
 
             <section class="content-section wordpress-container" id="wordpress">
                     <div class="section-title wordpress-title">
-                        <h1 class="heading">WordPress Dev</h1>
+                        <h2 class="heading">WordPress Dev</h2>
                         <container class="headings-group">
-                            <h2>Building Your Digital Presence...</h2>
+                            <h3>Building Your Digital Presence...</h3>
                         </container>
                     </div>
                     <!-- <div class="services grid-layout">
@@ -342,9 +342,9 @@
 
             <section class="content-section mobile_app-container" id="mobile_app">
                     <div class="section-title mobile_app-title">
-                        <h1 class="heading">Mobile App Dev</h1>
+                        <h2 class="heading">Mobile App Dev</h2>
                         <container class="headings-group">
-                            <h2>Building Your Digital Presence...</h2>
+                            <h3>Building Your Digital Presence...</h3>
                         </container>
                     </div>
                     <!-- <div class="services grid-layout">
@@ -404,9 +404,9 @@
 
             <section class="content-section seo-container" id="seo">
                 <div class="section-title seo-title">
-                    <h1 class="heading">SEO Auditing</h1>
+                    <h2 class="heading">SEO Auditing</h2>
                     <container class="headings-group">
-                        <h2>Building Your Digital Presence...</h2>
+                        <h3>Building Your Digital Presence...</h3>
                     </container>
                 </div>
                 <!-- <div class="services grid-layout">
@@ -464,12 +464,12 @@
                             <div class="bottom door"></div>
                             <div class="icons-container">
                                 <div class="footer-socials boxed">
-                                    <a href="https://linkedin" id="linkedin"></a>
-                                    <a href="https://facebook" id="facebook"></a>
-                                    <a href="https://instagram" id="instagram"></a>
-                                    <a href="https://X" id="xcom"></a>
-                                    <a href="https://github.com" id="github"></a>
-                                    <a href="https://telegram.com" id="telegram"></a>
+                                    <a href="https://linkedin" id="linkedin"><i class="fa-brands fa-linkedin fa-xl" style="color: #74C0FC;"></i></a>
+                                    <!-- <a href="https://facebook" id="facebook"></a> -->
+                                    <!-- <a href="https://instagram" id="instagram"></a> -->
+                                    <a href="https://X" id="xcom"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #fafafa;"></i></a>
+                                    <a href="https://github.com" id="github"><i class="fa-brands fa-square-github fa-xl" style="color: #8ba0c6;"></i></a>
+                                    <!-- <a href="https://telegram.com" id="telegram"></a> -->
                                 </div>
                             </div>
                         </div>
@@ -601,11 +601,11 @@
                 gsap.from("h1 .line span", {
                     yPercent: 200,
                     opacity: 0,
-                }, "<");
+                }, "<-=.3");
                 gsap.to("h1 .char", {
                     opacity: 1,
-                    duration: 1,
-                    stagger: 0.075,
+                    duration: .5,
+                    stagger: 0.05,
                 }, ">");
                 gsap.to(".images-grid p", {
                     opacity: 1,
@@ -629,9 +629,9 @@
                 gsap.to(".images-grid .item", {
                     yPercent: 0,
                     opacity: 1,
-                    delay: 3.5,
+                    delay: 3.2,
                     duration: .5,
-                    stagger: .3,
+                    stagger: .1,
                     ease: "bounce.out",
                 });
             }

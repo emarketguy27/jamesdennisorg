@@ -101,9 +101,38 @@ function hideDetails() {
 // Add click listeners
 gsap.utils.toArray('.item').forEach(item => item.addEventListener('click', () => showDetails(item)));
 
-
+// 	WEB DEVELOPMENT SECTION //
+gsap.utils.toArray(".section-title").forEach((title, i) => {
+	gsap.set(title, {
+		yPercent: 50,
+		opacity: 0,
+	})
+	gsap.to(title, {
+		scrollTrigger: {
+			trigger: title,
+			start: "top 90%",
+			end: "top 60%",
+			toggleActions: "play none reverse reset",
+			ease: "power4.inOut",
+			scrub: 2,
+		},
+		opacity: 1,
+		yPercent: 0,
+		duration: .5,
+	});
+});
+gsap.to(".core-title", {
+	scrollTrigger: {
+		trigger: ".core-title",
+		start: "top 80%",
+		end: "top 20%",
+		scrub: 1,
+	},
+	opacity: 1,
+})
 // Core Services Pinned Sections
 const rightItems = gsap.utils.toArray(".item-right:not(:first-child)");
+const leftItems = gsap.utils.toArray(".item-left");
 
 gsap.set(rightItems, {
   yPercent: 100,
@@ -116,7 +145,6 @@ const scrollOut = gsap.to(rightItems, {
   duration: .5,
   stagger: 1,
 });
-
 ScrollTrigger.create({
   trigger: ".service-list",
   start: "top top",
@@ -124,6 +152,6 @@ ScrollTrigger.create({
   pin: ".right-container",
   animation: scrollOut,
   scrub: 2,
-  snap: .25,
+//   snap: 1 / 4,
   markers: false,
 });
