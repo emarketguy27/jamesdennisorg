@@ -130,28 +130,95 @@ gsap.to(".core-title", {
 	},
 	opacity: 1,
 })
+
 // Core Services Pinned Sections
-const rightItems = gsap.utils.toArray(".item-right:not(:first-child)");
-const leftItems = gsap.utils.toArray(".item-left");
 
-gsap.set(rightItems, {
-  yPercent: 100,
-  opacity: 0,
+gsap.set(".item-right", { zIndex: (i, target, targets) => targets.length - i });
+
+var images = gsap.utils.toArray(".item-right:not(:last-child)");
+// const snapAmount = 0.3;
+images.forEach((image, i) => {
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".service-list",
+      start: () => "top -" + window.innerHeight * (i + 0.5),
+      end: () => "+=" + window.innerHeight,
+      scrub: true,
+      // snap: { snapTo: snapAmount, duration: 0.8 },
+      toggleActions: "play none reverse none",
+      invalidateOnRefresh: true,
+	  markers: false,
+    }
+  });
+  tl.to(image, { scale: 0, opacity: 0,});
 });
 
-const scrollOut = gsap.to(rightItems, {
-  yPercent: 0,
-  opacity: 1,
-  duration: .5,
-  stagger: 1,
+gsap.set(".item-left", { zIndex: (i, target, targets) => targets.length - i });
+
+var texts = gsap.utils.toArray(".item-left");
+var textItems = gsap.utils.toArray(".service-info");
+
+texts.forEach((text, i) => {
+  let titleLine = text.querySelector(".fill-line");
+
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".service-list",
+      start: () => "top -" + window.innerHeight * i,
+      end: () => "+=" + window.innerHeight,
+      toggleClass: { targets: titleLine, className: "growOut" },
+      scrub: true,
+    //   snap: { snapTo: snapAmount * 1.6, duration: 0.8 },
+      toggleActions: "play none reverse reset",
+      invalidateOnRefresh: true
+    }
+  });
+
+  tl.to(text, {
+    duration: 0.33,
+    opacity: 1,
+    y: "0%"
+  });
+
+  tl.to(text, { duration: 0.33, opacity: 0, y: "-40%" }, 0.66);
 });
+
 ScrollTrigger.create({
   trigger: ".service-list",
-  start: "top top",
-  end: "bottom bottom",
-  pin: ".right-container",
-  animation: scrollOut,
-  scrub: 2,
-//   snap: 1 / 4,
-  markers: false,
+  scrub: true,
+  pin: true,
+  start: () => "top top",
+  end: () => "+=" + (images.length + 1) * window.innerHeight,
+  // markers: true,
+  invalidateOnRefresh: true
 });
+
+
+
+// let mm = gsap.matchMedia();
+// mm.add("(min-width: 800px)", () => {
+	// const rightItems = gsap.utils.toArray(".item-right:not(:first-child)");
+
+	// gsap.set(rightItems, {
+	// yPercent: 100,
+	// opacity: 0,
+	// });
+
+	// const scrollOut = gsap.to(rightItems, {
+	// yPercent: 0,
+	// opacity: 1,
+	// // duration: 1.5,
+	// // stagger: 1,
+	// });
+	// ScrollTrigger.create({
+	// trigger: ".service-list",
+	// start: "top top",
+	// end: "bottom bottom",
+	// pin: ".right-container",
+	// animation: scrollOut,
+	// scrub: true,
+	// //   snap: 1 / 4,
+	// markers: true,
+	// });
+// })
+
