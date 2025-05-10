@@ -145,7 +145,7 @@ images.forEach((image, i) => {
       end: () => "+=" + window.innerHeight,
       scrub: true,
       // snap: { snapTo: snapAmount, duration: 0.8 },
-      toggleActions: "play none reverse none",
+      toggleActions: "play none none reset",
       invalidateOnRefresh: true,
 	  markers: false,
     }
@@ -169,7 +169,7 @@ texts.forEach((text, i) => {
       toggleClass: { targets: titleLine, className: "growOut" },
       scrub: true,
     //   snap: { snapTo: snapAmount * 1.6, duration: 0.8 },
-      toggleActions: "play none reverse reset",
+      toggleActions: "play none none reset",
       invalidateOnRefresh: true
     }
   });
@@ -192,33 +192,3 @@ ScrollTrigger.create({
   // markers: true,
   invalidateOnRefresh: true
 });
-
-
-
-// let mm = gsap.matchMedia();
-// mm.add("(min-width: 800px)", () => {
-	// const rightItems = gsap.utils.toArray(".item-right:not(:first-child)");
-
-	// gsap.set(rightItems, {
-	// yPercent: 100,
-	// opacity: 0,
-	// });
-
-	// const scrollOut = gsap.to(rightItems, {
-	// yPercent: 0,
-	// opacity: 1,
-	// // duration: 1.5,
-	// // stagger: 1,
-	// });
-	// ScrollTrigger.create({
-	// trigger: ".service-list",
-	// start: "top top",
-	// end: "bottom bottom",
-	// pin: ".right-container",
-	// animation: scrollOut,
-	// scrub: true,
-	// //   snap: 1 / 4,
-	// markers: true,
-	// });
-// })
-

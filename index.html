@@ -85,9 +85,7 @@
                         <div class="page-nav">
                             <div class="nav-row">
                                 <ul class="nav-bar has-text-enhancements">
-                                    <li class="nav-link">
-                                        <a href="/services.html">Web Dev</a>
-                                    </li>
+                                    <li class="nav-link"><a href="/services.html#webdev">Web Dev</a></li>
                                     <li class="nav-link"><a href="services.html#wordpress">WordPress Dev</a></li>
                                     <li class="nav-link"><a href="/services.html#mobile_app">Mobile Apps</a></li>
                                     <li class="nav-link"><a href="/services.html#seo">SEO</a></li>
@@ -239,6 +237,7 @@
                 })
                 gsap.set(".hero-title .char", {
                     opacity: 0.05,
+                    y: 10,
                 });
                 gsap.set(".header", {
                     yPercent: -100,
@@ -286,8 +285,8 @@
                 }, "<");
                 gsap.to(".hero-title .char", {
                     opacity: 1,
-                    duration: 1,
-                    stagger: 0.075,
+                    y: 0,
+                    stagger: 0.04,
                 }, ">");
                 gsap.to(".header", {
                     yPercent: 0,

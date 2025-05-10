@@ -43,83 +43,87 @@
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
         </div>
         <header class="header" id="header">
-            <div class="header-container">
-                <nav class="nav">
-                    <div class="logo-switch-container">
-                        <a href="/" class="logo-title">
-                        <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo">
-                        <p class="logo-text">james dennis</p>
-                        </a>    
-                    </div>
-                    <div class="theme-switch">
-                        <input type="checkbox" id="theme-checkbox" />
-                        <label for="theme-checkbox">
-                        <div></div>
-                        <span>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                class="w-6 h-6">
-                                <path
-                                d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z">
-                                </path>
-                            </svg>
-                        </span>
-                        <span>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                class="w-6 h-6"
-                            >
-                                <path
-                                fill-rule="evenodd"
-                                d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"
-                                clip-rule="evenodd"
-                                ></path>
-                            </svg>
-                        </span>
-                        </label>
-                    </div>
-                    <div class="page-nav">
-                        <div class="nav-row">
-                            <ul class="nav-bar has-text-enhancements">
-                                <li class="nav-link"><a href="#services">Web Dev</a></li>
-                                <li class="nav-link"><a href="#wordpress">WordPress Dev</a></li>
-                                <li class="nav-link"><a href="#mobile_app">Mobile Apps</a></li>
-                                <li class="nav-link"><a href="#seo">SEO</a></li>
-                            </ul>
-                            <a href="/services.html" class="nav-link-main">SERVICES</a>
+                <div class="header-container">
+                    <nav class="nav">
+                        <div class="logo-switch-container">
+                            <a href="/" class="logo-title">
+                            <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo">
+                            <p class="logo-text">james dennis</p>
+                            </a>    
                         </div>
-                        <div class="open-icon-container"><img class="modal-open" 
-                            id="menu-open" 
-                            src="/Assets/Fonts/Material-icons/Blue/menu_open_30dp_171717_FILL0_wght400_GRAD0_opsz24.png"
-                            onclick="modalVisible()">   
+                        <div class="theme-switch">
+                            <input type="checkbox" id="theme-checkbox" />
+                            <label for="theme-checkbox">
+                            <div></div>
+                            <span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    class="w-6 h-6">
+                                    <path
+                                    d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    class="w-6 h-6"
+                                >
+                                    <path
+                                    fill-rule="evenodd"
+                                    d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"
+                                    clip-rule="evenodd"
+                                    ></path>
+                                </svg>
+                            </span>
+                            </label>
                         </div>
-                        <span class="tooltiptext">Click for full menu  <strong>↑</strong></span>
-                    </div>
-                    <div class="modal" id="menu-modal">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h2>My Freelance Services</h2>
-                                <img class="modal-close" 
-                                id="menu-close" 
-                                src="/Assets/Fonts/Material-icons/Purple/close_30dp_6D76C5_FILL0_wght400_GRAD0_opsz24.png"
-                                onclick="modalVisible()">
-                            </div>
-                            <div class="modal-body">
-                                <ul class="modal-list">
-                                    <li><img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/code_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png"><a href="#webdev" onclick="modalVisible()">Web Development</a></li>
-                                    <li><img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/w-logo-blue.png"><a href="#wordpress" onclick="modalVisible()">WordPress</a></li>
-                                    <li><img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/devices_other_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png"><a href="#mobile_app" onclick="modalVisible()">Mobile Apps</a></li>
-                                    <li><img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/query_stats_30dp_0074A2_FILL0_wght400_GRAD0_opsz24 (1).png"><a href="#seo" onclick="modalVisible()">SEO</a></li>
+                        <div class="page-nav">
+                            <div class="nav-row">
+                                <ul class="nav-bar has-text-enhancements">
+                                    <li class="nav-link"><a href="/services.html#webdev">Web Dev</a></li>
+                                    <li class="nav-link"><a href="services.html#wordpress">WordPress Dev</a></li>
+                                    <li class="nav-link"><a href="/services.html#mobile_app">Mobile Apps</a></li>
+                                    <li class="nav-link"><a href="/services.html#seo">SEO</a></li>
                                 </ul>
+                                <a href="/services.html" class="nav-link-main">SERVICES</a>
+                            </div>
+                            <div class="open-icon-container">
+                                <img class="modal-open" 
+                                id="menu-open" 
+                                src="/Assets/Fonts/Material-icons/Purple/menu_open_30dp_6D76C5_FILL0_wght400_GRAD0_opsz24.png"
+                                onclick="modalVisible()">   
+                            </div>
+                            <span class="tooltiptext">Click for full menu</span>
+                        </div>
+                        <div class="modal" id="menu-modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2>My Freelance Services</h2>
+                                    <img class="modal-close" 
+                                    id="menu-close" 
+                                    src="/Assets/Fonts/Material-icons/Purple/close_30dp_6D76C5_FILL0_wght400_GRAD0_opsz24.png"
+                                    onclick="modalVisible()">
+                                </div>
+                                <div class="modal-body">
+                                    <ul class="modal-list">
+                                        <li>
+                                            <img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/code_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png">
+                                            <a href="#webdev" onclick="modalVisible()">Web Development</a>
+                                        </li>
+                                        <li><img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/w-logo-blue.png"><a href="#wordpress" onclick="modalVisible()">WordPress</a></li>
+                                        <li><img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/devices_other_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png"><a href="#mobile_app" onclick="modalVisible()">Mobile Apps</a></li>
+                                        <li><img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/query_stats_30dp_0074A2_FILL0_wght400_GRAD0_opsz24 (1).png"><a href="#seo" onclick="modalVisible()">SEO</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </nav>
-            </div>
+                    </nav>
+                </div>
         </header>
 
         <div class="content-wrapper" id="top">
@@ -222,29 +226,25 @@
                                 <div class="service-info">
                                    <span class="number">01</span>
                                     <h3 class="headline">Design That Feels Intuitive, Not Forced</h3> 
-                                </div>
-                                
+                                </div>  
                             </div>
                             <div class="item-left">
                                 <div class="service-info">
                                    <span class="number">02</span>
                                     <h3 class="headline">Visual Storytelling That Hooks Visitors</h3> 
                                 </div>
-                                
                             </div>
                             <div class="item-left">
                                 <div class="service-info">
                                    <span class="number">03</span>
                                     <h3 class="headline">Optimised UX That Converts Browsers</h3> 
                                 </div>
-                                
                             </div>
                             <div class="item-left">
                                 <div class="service-info">
                                    <span class="number">04</span>
                                     <h3 class="headline">Backend Harmony, Frontend Magic</h3> 
                                 </div>
-                                
                             </div>
                         </div>
                         <div class="right-container">
@@ -343,59 +343,193 @@
             </div>
 
             <section class="content-section wordpress-container" id="wordpress">
-                    <div class="section-title wordpress-title">
-                        <h2 class="heading">WordPress Dev</h2>
-                        <container class="headings-group">
-                            <h3>Building Your Digital Presence...</h3>
-                        </container>
+                <div class="section-title wordpress-title">
+                  <h2 class="heading">WordPress Dev</h2>
+                  <container class="headings-group">
+                    <h3>Building Your Digital Presence...</h3>
+                    <p class="subhead">Whether you're starting fresh or optimizing an existing site</p>
+                  </container>
+                </div>
+              
+                <!-- Dual-Path Cards -->
+                <div class="wordpress-path-container">
+                  <!-- Path 1: New Site -->
+                  <div class="path-card new-site-card">
+                    <div class="path-header">
+                      <svg class="path-icon" viewBox="0 0 24 24"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>
+                      <h4>Need a New WordPress Site?</h4>
                     </div>
-                    <!-- <div class="services grid-layout">
-                        <div class="service-card">
-                            <img src="/Assets/Images/Content/wordpress-com.jpg" alt="">
-                            <div class="card-content">
-                                <div class="service-name">
-                                    <h3 class="card-title">Dynamic WordPress Websites</h3>
+                    <p>Let's build your site right from the start with:</p>
+                    <ul>
+                      <li>Strategic planning</li>
+                      <li>Brand-aligned design</li>
+                      <li>Future-proof architecture</li>
+                      <li>Something Else</li>
+                    </ul>
+                    <button class="path-button" id="new-site-btn">Plan My Site →</button>
+                  </div>
+              
+                  <!-- Path 2: Existing Site -->
+                  <div class="path-card existing-site-card">
+                    <div class="path-header">
+                      <svg class="path-icon" viewBox="0 0 24 24"><path d="M12,2L4,5V11.09C4,16.14 7.41,20.85 12,22C16.59,20.85 20,16.14 20,11.09V5L12,2M14.5,15.5L12,13L9.5,15.5L8,14L10.5,11.5L8,9L9.5,7.5L12,10L14.5,7.5L16,9L13.5,11.5L16,14L14.5,15.5Z" /></svg>
+                      <h4>Fixing an Existing Site?</h4>
+                    </div>
+                    <p>Rescue your WordPress site from:</p>
+                    <ul>
+                      <li>Slow performance</li>
+                      <li>Security vulnerabilities</li>
+                      <li>Plugin conflicts</li>
+                      <li>Another Thing</li>
+                    </ul>
+                    <button class="path-button" id="existing-site-btn">Diagnose My Site →</button>
+                  </div>
+                </div>
+              
+                <!-- Quiz Modals -->
+                <!-- New Site Quiz Modal -->
+                <div id="new-site-quiz" class="quiz-modal">
+                    <div class="quiz-content">
+                        <span class="close-btn">&times;</span>
+                        <h2>New Site Planner</h2>
+                        <div class="step-wrapper">
+                            <!-- Step 1 - Updated Options -->
+                            <div class="quiz-step active" data-step="1">
+                                <p>What's the primary purpose of your site?</p>
+                                <select class="quiz-input">
+                                <option value="">Select...</option>
+                                <option value="branding">Brand Awareness</option>
+                                <option value="ecommerce">E-commerce Store</option>
+                                <option value="leads">Lead Generation</option>
+                                <option value="portfolio">Portfolio/Showcase</option>
+                                </select>
+                                <div class="quiz-feedback"></div>
+                            </div>
+                            <!-- Step 2 - Radio Buttons -->
+                            <div class="quiz-step" data-step="2">
+                                <p>Do you have existing brand materials?</p>
+                                <div class="quiz-options">
+                                <label class="radio-option">
+                                    <input type="radio" name="brandMaterials" value="yes">
+                                    <span class="radio-btn"></span>
+                                    Yes (Logo/Colors/Fonts)
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="brandMaterials" value="no">
+                                    <span class="radio-btn"></span>
+                                    No, Need Branding Help
+                                </label>
                                 </div>
-                                <p><strong>Transforming Ideas into User-Loved Experiences</strong></p>                            
-                                <p>Build high-performing websites that drive results.</p>
+
+                                <div class="brand-upload" style="display:none">
+                                    <div class="upload-group">
+                                    <label>Logo (PNG/JPG, max 2MB) <strong>(Coming Soon)</strong></label>
+                                    <input type="file" accept=".png,.jpg,.jpeg" class="brand-logo" disabled>
+                                    </div>
+                                    
+                                    <div class="upload-group">
+                                    <label>Color Scheme</label>
+                                    <div class="color-picker">
+                                        <label for="color-primary">Primary</label>
+                                        <input type="color" class="brand-color-primary" id="color-primary" value="#0066cc">
+                                        <label for="color-secondary">Secondary</label>
+                                        <input type="color" class="brand-color-secondary" id="color-secondary" value="#ff6600">
+                                    </div>
+                                    </div>
+                                    
+                                    <div class="upload-group">
+                                    <label>Font Examples (PDF/URL) <strong>(Coming Soon)</strong></label>
+                                    <input type="file" accept=".pdf" class="brand-font-file" disabled>
+                                    <input type="url" placeholder="or enter font URL" class="brand-font-url">
+                                    </div>
+                                </div>
+
+                                <div class="quiz-feedback"></div>
+                            </div>
+                            <div class="quiz-step" data-step="3">
+                                <h3>Almost Done!</h3>
+                                <p>Where should we send your custom site plan?</p>
+                                <input type="email" class="quiz-input" placeholder="your@email.com" required>
+                                <div class="quiz-feedback"></div>
+                                
+                                <!-- <div class="quiz-summary">
+                                <h4>Your Selections:</h4>
+                                <div id="purpose-summary"></div>
+                                <div id="branding-summary"></div>
+                                </div> -->
+                            </div>
+                        </div>   
+                        <!-- Navigation -->
+                        <div class="quiz-nav">
+                            <!-- Must be in this exact order -->
+                            <button type="button" class="quiz-prev" disabled>← Previous</button>
+                            <span class="quiz-progress">Step 1 of 3</span>
+                            <button type="button" class="quiz-next">Next →</button>
+                            <button type="button" class="quiz-submit">Get My Report<span><i class="fa-solid fa-paper-plane"></i></span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Existing Site Quiz Modal -->
+                <div id="existing-site-quiz" class="quiz-modal">
+                    <div class="quiz-content">
+                        <span class="close-btn">&times;</span>
+                        <h2>Site Diagnostic</h2>
+                        <div class="step-wrapper">
+                            <!-- Step 1 -->
+                            <div class="quiz-step active" data-step="1">
+                                <p>Enter your WordPress site URL:</p>
+                                <input type="url" class="quiz-input" placeholder="https://">
+                                <div class="quiz-feedback"></div>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="quiz-step" data-step="2">
+                                <p>What issues are you experiencing?</p>
+                                <div class="quiz-options multi-select">
+                                <label><input type="checkbox" name="issues" value="slow"> Slow loading</label>
+                                <label><input type="checkbox" name="issues" value="broken"> Broken layout</label>
+                                <label><input type="checkbox" name="issues" value="security"> Security concerns</label>
+                                <label><input type="checkbox" name="issues" value="seo"> SEO Performance</label>
+                                </div>
+                                <div class="quiz-feedback"></div> <!-- Error container -->
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="quiz-step" data-step="3">
+                                <h3>Almost Done!</h3>
+                                <div class="form-group">
+                                    <label>Email for your report:</label>
+                                    <input type="email" class="quiz-input" placeholder="your@email.com" required>
+                                    <div class="quiz-feedback"></div>
+                                </div>
+                                <!-- <div class="quiz-summary"></div> -->
                             </div>
                         </div>
-                        <div class="service-card">
-                            <img src="/Assets/Images/Content/wordpress-creating.jpg" alt="">
-                            <div class="card-content">
-                                <div class="service-name">
-                                    <h3 class="card-title">WordPress Themes</h3> 
-                                </div>
-                                <p><strong>Transforming Ideas into User-Loved Experiences</strong></p>                            
-                                <p>Build high-performing websites that drive results.</p>
-                            </div>
+                        <!-- Navigation -->
+                        <div class="quiz-nav">
+                            <button class="quiz-prev" disabled>← Previous</button>
+                            <span class="quiz-progress">Step 1 of 3</span>
+                            <button class="quiz-next">Next →</button>
+                            <button class="quiz-submit" style="display:none;">Get My Report<span><i class="fa-solid fa-paper-plane"></i></span></button>
                         </div>
-                        <div class="service-card">
-                            <img src="/Assets/Images/Content/wordpress-plugins-2.jpg" alt="">
-                            <div class="card-content">
-                                <div class="service-name">
-                                    <h3 class="card-title">WordPress Plugins</h3>  
-                                </div>
-                                <p><strong>Transforming Ideas into User-Loved Experiences</strong></p>                            
-                                <p>Build high-performing e-commerce websites that drive results.</p>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <img src="/Assets/Images/Content/phpecho.jpg" alt="">
-                            <div class="card-content">
-                                <div class="service-name">
-                                    <h3 class="card-title">WordPress Customisation</h3>  
-                                </div>
-                                <p><strong>Transforming Ideas into User-Loved Experiences</strong></p>                            
-                                <p>Optimize your website to rank higher on search engines.</p>
-                            </div>
-                        </div>
-                    </div> -->
-                    <buttons class="buttons">
-                        <div type="button" class="button hire-btn"><a href="/contact.html"><span>Get a Quote</span></a></div>
-                        <div type="button" class="button explore-btn"><a href="#mobile_app"><span>Mobile Apps</span></a></div>
-                    </buttons>
-            </section>
+                    </div>
+                </div>
+                  
+                  <!-- Hidden Form for Submission -->
+                  <form id="web3form-quiz" style="display:none;">
+                    <input type="hidden" name="access_key" value="ef80d7ef-9501-4189-add2-0530ffcaf0c0">
+                    <input type="hidden" name="quiz_type" id="web3-quiz-type">
+                    <input type="hidden" name="details" id="web3-details">
+                    <input type="email" name="email" id="web3-email" required>
+                  </form>
+                  <!-- <form id="wordpress-quiz-form" style="display:none;">
+                    <input type="hidden" name="quiz-type" id="quiz-type">
+                    <input type="hidden" name="site-url" id="form-site-url">
+                    <input type="hidden" name="issues" id="form-issues">
+                    <input type="hidden" name="maintenance" id="form-maintenance">
+                    <input type="hidden" name="answers" id="form-answers">
+                    <input type="email" name="email" required id="form-email">
+                  </form> -->
+              </section>
 
             <div class="cta-wrapper">
                 <section class="cta-section">
@@ -595,6 +729,7 @@
         <script src="/Scripts/services.js"></script>
         <script src="/Scripts/gsap.js"></script>
         <script src="/Scripts/darkmode.js"></script>
+        <script src="/Scripts/wordpress-quiz.js"></script>
         <script> // Entry Animations
             function serviceLoadingAnimation() {
                 let targets = gsap.utils.toArray(".images-grid .item");
