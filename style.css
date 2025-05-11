@@ -1295,7 +1295,7 @@ header.hidden {
             }
         }
     }
-    .services-container, .webdev-container, .wordpress-container, .mobile_app-container, .seo-container {
+    .services-container, .webdev-container, .mobile_app-container, .seo-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1341,7 +1341,7 @@ header.hidden {
                     text-wrap: balance;
                 }
                 h3 {
-                    max-width: 95%;
+                    /* max-width: 95%; */
                     color: var(--color-accent);
                     text-shadow: 0px -2px 20px #00000070; 
                 }
@@ -1608,75 +1608,6 @@ header.hidden {
                 }
             }
         }
-        .wordpress-path-container {
-            display: grid;
-            grid-auto-columns: auto;
-            padding-inline: var(--spacing-half);
-            gap: 30px;
-            margin: 40px auto;
-        }
-        
-        .path-card {
-        /* width: 100%; */
-        max-width: 600px;
-        background: rgba(255,255,255,0.1);
-        border-radius: 12px;
-        padding: 30px;
-        border: 1px solid rgba(255,255,255,0.2);
-        transition: all 0.3s ease;
-        p {
-            font-size: var(--font-large);
-        }
-        ul {
-            margin-block: var(--spacing-double);
-            padding: .3em var(--spacing-double);
-            list-style: "\2713" inside;
-            column-count: 2;
-            li {
-                width: max-content;
-                padding-left: var(--spacing);
-                &::marker {
-                    letter-spacing: 8px;
-                    font-size: 1.5rem;
-                    color: var(--color-icon-green);
-                }
-            }
-        }
-        }
-        
-        .path-card:hover {
-        transform: translateY(-5px);
-        background: rgba(255,255,255,0.15);
-        }
-        
-        .path-header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 20px;
-        h4 {
-            margin-block: 0;
-        }
-        }
-        
-        .path-icon {
-        width: 24px;
-        height: 24px;
-        fill: #89D4CF;
-        }
-        
-        .path-button {
-        background: rgba(137, 212, 207, 0.2);
-        border: 1px solid #89D4CF;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 6px;
-        margin-top: 20px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        }
-          
         /* Quiz Modal Styles */
         .quiz-modal {
         position: fixed;
@@ -1980,6 +1911,79 @@ header.hidden {
         .quiz-nav button.quiz-submit.show {
             display: block;
             width: 8rem;
+        }
+    }
+    .content-section.wordpress-container {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+        background-color: var(--color-foreground);
+        padding-bottom: var(--spacing-quadruple);
+        .wordpress-path-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 600px));
+            padding: 1em;
+            gap: 30px;
+            justify-content: center;
+            .path-card {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: rgba(255,255,255,0.1);
+                border-radius: 12px;
+                padding: 30px;
+                border: 1px solid rgba(255,255,255,0.2);
+                transition: all 0.3s ease;
+                .path-header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 20px;
+                .path-icon {
+                    width: 24px;
+                    height: 24px;
+                    fill: #89D4CF;
+                }
+                h4 {
+                    margin-block: 0;
+                }
+                }
+                p {
+                font-size: 1.2rem;
+                }
+                ul {
+                margin-block: 2em;
+                padding: .3em 2em;
+                list-style: "\2713" inside;
+                column-count: 2;
+                li {
+                    width: max-content;
+                    padding-left: 1em;
+                    &::marker {
+                    letter-spacing: 8px;
+                    font-size: 1.5rem;
+                    color: green;
+                    }
+                }
+                }
+                .path-button {
+                background: rgba(137, 212, 207, 0.2);
+                border: 1px solid #89D4CF;
+                color: white;
+                padding: 12px 24px;
+                border-radius: 6px;
+                margin-top: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            }
+            .path-card:hover {
+                transform: translateY(-5px);
+                background: rgba(255,255,255,0.15);
+            }
         }
     }
     .quiz-notification {
