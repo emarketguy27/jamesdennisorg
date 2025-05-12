@@ -1943,9 +1943,9 @@ header.hidden {
                 gap: 15px;
                 margin-bottom: 20px;
                 .path-icon {
-                    width: 24px;
-                    height: 24px;
-                    fill: #89D4CF;
+                    /* width: 24px; */
+                    /* height: 24px; */
+                    /* fill: #89D4CF; */
                 }
                 h4 {
                     margin-block: 0;
