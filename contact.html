@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/Assets/Fonts/FontAwesome/fontawesome-free-6.7.2-web/css/solid.min.css">
     <link rel="stylesheet" href="/Styles/lenis.css">
     <link rel="stylesheet" href="/style.css">
-    <!-- <link rel="stylesheet" href="/Styles/buttons.css"> -->
+
 </head>
     <body>
         <div class="loader-container" style="position: fixed; width: 100%; height: 100vh; z-index: 9999; display: flex;">
@@ -44,9 +44,9 @@
                 <div class="header-container">
                     <nav class="nav">
                         <div class="logo-switch-container">
-                            <a href="/" class="logo-title">
-                            <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo">
-                            <p class="logo-text">james dennis</p>
+                            <a href="/index.html" class="logo-title">
+                            <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo" style="z-index: -1;">
+                            <p class="logo-text" style="z-index: -1;">james dennis</p>
                             </a>    
                         </div>
                         <div class="theme-switch">
@@ -234,80 +234,37 @@
         <script src="/Scripts/darkmode.js"></script>
         <script> // Loading Animation
             function startLoadingAnimation() {
-                gsap.set(".load-text", {
-                    display: "grid",
-                });
+                
                 const loader = document.querySelector('.loader-container');
                 const bars = document.querySelectorAll('.bar');
-
-                const headline = new SplitType(".hero-title", {
-                    type: "lines",
-                });
-
+                const headline = new SplitType(".hero-title", {type: "lines",});
                 headline.lines.forEach((line) => {
                     const content = line.innerHTML;
                     line.innerHTML = `<span>${content}</span>`;
                 });
-                gsap.set(".hero-title .line span", {
-                    // yPercent: 200,
-                    display: "block",
-                })
-                gsap.set(".hero-title .char", {
-                    opacity: 0.05,
-                });
-                gsap.set(".header", {
-                    yPercent: -100,
-                })
-                gsap.set(loader, {
-                    height: "100%",
-                })
-                gsap.set(bars, {
-                    height: '100%',
-                })
-                gsap.to('.load-text', {
-                    yPercent: 100,
-                    opacity: 0,
-                    delay: .9,
-                    display: "none",
-                })
-                gsap.to(bars, {
-                    duration: .5,
-                    height: 0,
-                    stagger: {
-                        from: "center",
-                        amount: 0.5,
-                    },
-                    delay: 1,
+                
+                gsap.set(".hero-title .line span", {display: "block",})
+                gsap.set(".hero-title .char", {opacity: 0.05,});
+                gsap.set(".header", {yPercent: -100,})
+                gsap.set(".load-text", {display: "grid",});
+
+                let entryTl = gsap.timeline();
+                entryTl.add("loader") // timing marker (loader)
+                .fromTo(".load-text", {opacity: 0, yPercent: 100,}, {opacity: 1, yPercent: 0,}, "loader")
+                .to(bars, {
+                    duration: .5, 
+                    height: 0, 
+                    stagger: {from: "center", amount: 0.2,},
+                    delay: 1.2,
                     ease: "power4.inOut",
-                })
-                gsap.to(loader, {
-                    duration: 1,
-                    height: 0,
-                    delay: 1,
-                }, "<");
-                // gsap.from(".logo-char", {
-                //     yPercent: 100,
-                //     opacity: 0,
-                //     duration: .15,
-                //     stagger: {
-                //         from: "center",
-                //         amount: 0.25,
-                //     },
-                //     ease: "power1.out",
-                // }, "<-=.6");
-                gsap.from(".hero-title .line span", {
-                    yPercent: 200,
-                    opacity: 0,
-                }, "<");
-                gsap.to(".hero-title .char", {
-                    opacity: 1,
-                    duration: 1,
-                    stagger: 0.075,
-                }, ">");
-                gsap.to(".header", {
-                    yPercent: 0,
-                    // duration: .7,
-                }, "<+=1.3");
+                }, "loader")
+                .to('.load-text', {yPercent: -100, opacity: 0, display: "none",}, "loader+=1.2")
+                .to(loader, {height: 0,}, "-=.5")
+                .add("content") // timing marker (content)
+
+                .to(".header", {yPercent: 0,}, "content")
+                .from(".hero-title .line span", {yPercent: 200, opacity: 0,}, "content")
+                .to(".hero-title .char", {opacity: 1, y: 0, stagger: 0.04,}, ">");
             }
             startLoadingAnimation();
         </script>

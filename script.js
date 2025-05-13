@@ -1,32 +1,73 @@
 /* VIEW TRANSITIONS API CUSTOMIZATION */
-pages = [
-    '',
-    'form.html',
-]
+// pages = [
+//     '',
+//     'form.html',
+// ]
 
 // ----------Custom view transition----------
-window.addEventListener('pagereveal', async (event) => {
-    if (!event.viewTransition) return;
+// window.addEventListener('pagereveal', async (event) => {
+//     if (!event.viewTransition) return;
 
-    const oldUrl = navigation.activation.from.url;
-    const targetUrl = navigation.activation.entry.url;
-    console.log(oldUrl);
-    console.log(targetUrl);
-    const oldPath = new URL(oldUrl).pathname.split('/').pop();
-    const targetPath = new URL(targetUrl).pathname.split('/').pop();
+//     const oldUrl = navigation.activation.from.url;
+//     const targetUrl = navigation.activation.entry.url;
+//     console.log(oldUrl);
+//     console.log(targetUrl);
+//     const oldPath = new URL(oldUrl).pathname.split('/').pop();
+//     const targetPath = new URL(targetUrl).pathname.split('/').pop();
 
-    const oldIndex = pages.indexOf(oldPath);
-    const newIndex = pages.indexOf(targetPath);
+//     const oldIndex = pages.indexOf(oldPath);
+//     const newIndex = pages.indexOf(targetPath);
 
-    const direction = oldIndex < newIndex ? 'forward' : 'backward';
+//     const direction = oldIndex < newIndex ? 'forward' : 'backward';
 
-    document.documentElement.dataset.direction = direction;
+//     document.documentElement.dataset.direction = direction;
 
-    await event.viewTransition.finished;
+//     await event.viewTransition.finished;
+// })
+
+// -------------------------------------------------
+// -------------Lenis Smooth Scroll-----------------
+// -------------------------------------------------
+const lenis = new Lenis();
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+//---------------------------------------------------------------------
+//--------------------Page Navigation Transitions----------------------
+// --------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll("a");
+    navLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            console.log(e.target.hostname);
+            console.log(window.location.hostname);
+            if (
+                e.target.hostname === window.location.hostname &&
+                e.target.getAttribute("href").indexOf("#") === -1 &&
+                e.target !== "_blank"
+            )   {
+                e.preventDefault();
+                let destination = e.target.getAttribute("href");
+                gsap.fromTo(".bar", {height: 0,}, {height: "105vh", stagger: { amount: 0.2, from: "center"}, ease: "power4.out",
+                    onComplete: () => {
+                        window.location = destination;
+                    }
+                });
+            }
+            
+        });
+    });
 })
 
+// --------------------------------------------------------------------
 // ----------Hide/Show navbar & ScrolltoTop on scroll up/down----------
-
+// --------------------------------------------------------------------
 var prevScrollpos = window.pageYOffset;
 const scrollHeight = document.documentElement.scrollHeight;
 
@@ -51,35 +92,20 @@ window.onscroll = function() {
                 document.getElementById("toTop").style.bottom = "-80px";                
             }
         }
-        
-        prevScrollpos = currentScrollPos;
-        // console.log(window.pageYOffset);  
+        prevScrollpos = currentScrollPos;  
     }
 
-
-// ----------Lenis Smooth Scroll----------
-/* Initialize Lenis with custom option */
-// Initialize Lenis
-const lenis = new Lenis();
-
-// Use requestAnimationFrame to continuously update the scroll
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-
-
-
-// ----------Menu Modal----------
+// ----------------------------------------------------------
+// ----------------Main Sub-Menu Modal-----------------------
+// ----------------------------------------------------------
 function modalVisible() {
     var element = document.getElementById("menu-modal");
     element.classList.toggle("visible");
     }
 
-
-// ----------Theme Preference Light/Dark----------
+// ----------------------------------------------------------
+// -------------Theme Preference Light/Dark------------------
+// ----------------------------------------------------------
 // function getUserPreference() {
 //     return localStorage.getItem('theme') || 'system';
 //   }

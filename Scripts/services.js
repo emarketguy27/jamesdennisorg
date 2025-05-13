@@ -102,7 +102,7 @@ function hideDetails() {
 gsap.utils.toArray('.item').forEach(item => item.addEventListener('click', () => showDetails(item)));
 
 // 	WEB DEVELOPMENT SECTION //
-gsap.utils.toArray(".section-title").forEach((title, i) => {
+gsap.utils.toArray(".section-title").forEach((title, i) => { 
 	gsap.set(title, {
 		yPercent: 50,
 		opacity: 0,
@@ -115,6 +115,7 @@ gsap.utils.toArray(".section-title").forEach((title, i) => {
 			toggleActions: "play none reverse reset",
 			ease: "power4.inOut",
 			scrub: 2,
+			// markers: true,
 		},
 		opacity: 1,
 		yPercent: 0,
@@ -133,62 +134,62 @@ gsap.to(".core-title", {
 
 // Core Services Pinned Sections
 
-gsap.set(".item-right", { zIndex: (i, target, targets) => targets.length - i });
+// gsap.set(".item-right", { zIndex: (i, target, targets) => targets.length - i });
 
-var images = gsap.utils.toArray(".item-right:not(:last-child)");
-// const snapAmount = 0.3;
-images.forEach((image, i) => {
-  var tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".service-list",
-      start: () => "top -" + window.innerHeight * (i + 0.5),
-      end: () => "+=" + window.innerHeight,
-      scrub: true,
-      // snap: { snapTo: snapAmount, duration: 0.8 },
-      toggleActions: "play none none reset",
-      invalidateOnRefresh: true,
-	  markers: false,
-    }
-  });
-  tl.to(image, { scale: 0, opacity: 0,});
-});
+// var images = gsap.utils.toArray(".item-right:not(:last-child)");
+// // const snapAmount = 0.3;
+// images.forEach((image, i) => {
+//   var tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: ".service-list",
+//       start: () => "top -" + window.innerHeight * (i + 0.5),
+//       end: () => "+=" + window.innerHeight,
+//       scrub: true,
+//       // snap: { snapTo: snapAmount, duration: 0.8 },
+//       toggleActions: "play none none reset",
+//       invalidateOnRefresh: true,
+// 	  markers: false,
+//     }
+//   });
+//   tl.to(image, { scale: 0, opacity: 0,});
+// });
 
-gsap.set(".item-left", { zIndex: (i, target, targets) => targets.length - i });
+// gsap.set(".item-left", { zIndex: (i, target, targets) => targets.length - i });
 
-var texts = gsap.utils.toArray(".item-left");
-var textItems = gsap.utils.toArray(".service-info");
+// var texts = gsap.utils.toArray(".item-left");
+// var textItems = gsap.utils.toArray(".service-info");
 
-texts.forEach((text, i) => {
-  let titleLine = text.querySelector(".fill-line");
+// texts.forEach((text, i) => {
+//   let titleLine = text.querySelector(".fill-line");
 
-  var tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".service-list",
-      start: () => "top -" + window.innerHeight * i,
-      end: () => "+=" + window.innerHeight,
-      toggleClass: { targets: titleLine, className: "growOut" },
-      scrub: true,
-    //   snap: { snapTo: snapAmount * 1.6, duration: 0.8 },
-      toggleActions: "play none none reset",
-      invalidateOnRefresh: true
-    }
-  });
+//   var tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: ".service-list",
+//       start: () => "top -" + window.innerHeight * i,
+//       end: () => "+=" + window.innerHeight,
+//       toggleClass: { targets: titleLine, className: "growOut" },
+//       scrub: true,
+//     //   snap: { snapTo: snapAmount * 1.6, duration: 0.8 },
+//       toggleActions: "play none none reset",
+//       invalidateOnRefresh: true
+//     }
+//   });
 
-  tl.to(text, {
-    duration: 0.33,
-    opacity: 1,
-    y: "0%"
-  });
+//   tl.to(text, {
+//     duration: 0.33,
+//     opacity: 1,
+//     y: "0%"
+//   });
 
-  tl.to(text, { duration: 0.33, opacity: 0, y: "-40%" }, 0.66);
-});
+//   tl.to(text, { duration: 0.33, opacity: 0, y: "-40%" }, 0.66);
+// });
 
-ScrollTrigger.create({
-  trigger: ".service-list",
-  scrub: true,
-  pin: true,
-  start: () => "top top",
-  end: () => "+=" + (images.length + 1) * window.innerHeight,
-  // markers: true,
-  invalidateOnRefresh: true
-});
+// ScrollTrigger.create({
+//   trigger: ".service-list",
+//   scrub: true,
+//   pin: true,
+//   start: () => "top top",
+//   end: () => "+=" + (images.length + 1) * window.innerHeight,
+//   // markers: true,
+//   invalidateOnRefresh: true
+// });

@@ -540,7 +540,6 @@ button[type="submit"] {
 }
 header {
     display: flex;
-    /* display: none; */
     align-items: center;
     justify-content: center;
     padding: var(--spacing-half);
@@ -1153,13 +1152,13 @@ header.hidden {
                     }
                 }
             }
-            p {
+            h2 {
                 grid-column: 1/-1;
                 grid-row: 1;
                 padding-inline: var(--spacing-double);
+                text-align: left;
                 @media (max-width: 900px) {
-                    grid-column: 1/-1;
-                    grid-row: 1;
+                    text-align: center;
                 }
             }
             .thumbnail:nth-of-type(1) {
@@ -1919,7 +1918,7 @@ header.hidden {
         width: 100%;
         text-align: center;
         background-color: var(--color-foreground);
-        padding-bottom: var(--spacing-quadruple);
+        height: 100vh;
         .wordpress-path-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(500px, 600px));
@@ -2120,8 +2119,6 @@ header.hidden {
     height: 300vh;
     width: 100%;
     margin-block: -100vh;
-    background-color: rgba(255, 255, 0, 0.295);
-    border-bottom: 2px solid red;
     .cta-section {
         position: sticky;
         top: 0;
@@ -2456,57 +2453,7 @@ header.hidden {
     grid-row-gap: .25em;
     width: 70%!important;
     & a {
-        /* width: 1.6rem; */
-        /* height: 1.6rem; */
-        /* color: var(--color-accent); */
-        /* opacity: 0.6; */
-        /* display: flex; */
-        /* align-items: center; */
-        /* justify-content: center; */
-        /* margin-inline: auto; */
-        /* padding: 4px; */
-        /* &#facebook {
-            &::before {
-                content: "\f09a";
-                font: var(--fa-font-brand);
-                font-weight: 900;
-            };
-        }
-        &#instagram {
-            &::before {
-                content: "\f16d";
-                font: var(--fa-font-brand);
-                font-weight: 900;
-            };
-        }
-        &#github {
-            &::before {
-                content: "\f09b";
-                font: var(--fa-font-brand);
-                font-weight: 900;
-            };
-        };
-        &#xcom {
-            &::before {
-                content: "\e61b";
-                font: var(--fa-font-brand);
-                font-weight: 900;
-            };   
-        };
-        &#linkedin {
-            &::before {
-                content: "\f08c";
-                font: var(--fa-font-brand);
-                font-weight: 900;
-            };   
-        };
-        &#telegram {
-            &::before {
-                content: "\f2c6";
-                font: var(--fa-font-brand);
-                font-weight: 900;
-            };   
-        }; */
+        font-size: 1.6rem;
         &:hover {
             color: var(--color-accent);
         }
@@ -2521,6 +2468,7 @@ footer {
     width: 100%;
     height: fit-content;
     padding: .5em 1.5em;
+    background-color: var(--color-background-alt);
     .footer-site-logo {
       grid-column: 1;
       place-content: center;

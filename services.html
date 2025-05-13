@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="/Assets/Fonts/FontAwesome/fontawesome-free-6.7.2-web/css/solid.min.css">
     <link rel="stylesheet" href="/Styles/lenis.css">
     <link rel="stylesheet" href="/style.css">
-    <!-- <link rel="stylesheet" href="/Styles/buttons.css"> -->
-    
     
 </head>
     <body>
@@ -46,9 +44,9 @@
                 <div class="header-container">
                     <nav class="nav">
                         <div class="logo-switch-container">
-                            <a href="/" class="logo-title">
-                            <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo">
-                            <p class="logo-text">james dennis</p>
+                            <a href="/index.html" class="logo-title">
+                            <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo" style="z-index: -1;">
+                            <p class="logo-text" style="z-index: -1;">james dennis</p>
                             </a>    
                         </div>
                         <div class="theme-switch">
@@ -130,9 +128,8 @@
             <div class="services-wrapper services wrap-with-fade gsap-div-services" id="services">
                 <span class="scroll-icon-2">+</span>
                 <h1>Freelance Services</h1>
-                <!-- <h3>A selection of core skillbase areas of expertise</h3> -->
                 <div class="images-grid">
-                    <p>A selection of core skillbase areas of expertise</p>
+                    <h2>Core Principles of Great Web Design</h2>
                     <div class="thumbnail item" 
                     data-title="Website Design Services" 
                     data-secondary="A website should work for you—not against you." 
@@ -734,98 +731,78 @@
         <script src="/Scripts/wordpress-quiz.js"></script>
         <script> // Entry Animations
             function serviceLoadingAnimation() {
+                gsap.set(".load-text", {display: "grid",});
+                
                 let targets = gsap.utils.toArray(".images-grid .item");
-                let entryTl = gsap.timeline();
+                targets.forEach(target => {
+                    gsap.set(target, {
+                        yPercent: 20,
+                        opacity: 0,
+                    })
+                });
                 const loader = document.querySelector('.loader-container');
                 const bars = document.querySelectorAll('.bar');
-
-                gsap.set(".load-text", {
-                    display: "grid",
-                });
-                gsap.set(".header", {
-                    yPercent: -100,
-                });
-                gsap.set(loader, {
-                    height: "100%",
-                });
-                gsap.set(bars, {
-                    height: '100%',
-                });
-                gsap.to('.load-text', {
-                    yPercent: 100,
-                    opacity: 0,
-                    delay: .9,
-                    display: "none",
-                })
-                gsap.to(bars, {
-                    duration: .5,
-                    height: 0,
-                    stagger: {
-                        from: "center",
-                        amount: 0.5,
-                    },
-                    delay: 1,
-                    ease: "power4.inOut",
-                })
-                gsap.to(loader, {
-                    duration: 1,
-                    height: 0,
-                    delay: 1,
-                }, "<");
-
                 const headline = new SplitType("h1", {
                     type: "lines",
                 });
-
                 headline.lines.forEach((line) => {
                     const content = line.innerHTML;
                     line.innerHTML = `<span>${content}</span>`;
+                });
+                
+                gsap.set(".header", {
+                    yPercent: -100,
                 });
                 gsap.set("h1 .line span", {
                     display: "block",
                 })
                 gsap.set("h1 .char", {
-                    opacity: 0.05,
+                    y: 30,
+                    opacity: 0,
                 });
-                gsap.set(".images-grid p", {
+                gsap.set(".images-grid h2", {
+                    y: -30,
                     opacity: 0,
                 })
-                gsap.from("h1 .line span", {
-                    yPercent: 200,
-                    opacity: 0,
-                }, "<-=.3");
-                gsap.to("h1 .char", {
+                
+                let entryTl = gsap.timeline();
+                entryTl.add("loader") // timing marker (loader)
+                .fromTo(".load-text", {opacity: 0, yPercent: 100,}, {opacity: 1, yPercent: 0,}, "loader")
+                .to(bars, {
+                    duration: .5, 
+                    height: 0, 
+                    stagger: {from: "center", amount: 0.2,},
+                    delay: 1.2,
+                    ease: "power4.inOut",
+                }, "loader")
+                .to('.load-text', {yPercent: -100, opacity: 0, display: "none",}, "loader+=1.2")
+                .to(loader, {height: 0,}, "-=.5")
+                .add("content") // timing marker (content)
+                // Content after loader
+                .to("h1 .char", {
+                    y:0,
                     opacity: 1,
                     duration: .5,
                     stagger: 0.05,
-                }, ">");
-                gsap.to(".images-grid p", {
+                }, "content")
+                .to(".images-grid h2", {
+                    y: 0,
                     opacity: 1,
                     duration: .7,
-                }, "<+=.5")
-                gsap.to(".header", {
-                    yPercent: 0,
                     ease: "bounce.out",
-                }, "<+=.7");
-
-                // Services Grid
-                targets.forEach(target => {
-                    gsap.set(target, {
-                        yPercent: 50,
-                        opacity: 0,
-                        // duration: .8,
-                        // delay: 1.9,
-                        // stagger: 1,
-                    })
-                });
-                gsap.to(".images-grid .item", {
+                }, "content+=.3")
+                .to(".header", {
+                    yPercent: 0,
+                    duration: 1,
+                    ease: "bounce.out",
+                }, "content")
+                .to(".images-grid .item", {
                     yPercent: 0,
                     opacity: 1,
-                    delay: 3.2,
-                    duration: .5,
-                    stagger: .1,
+                    duration: 1.5,
+                    stagger: .075,
                     ease: "bounce.out",
-                });
+                }, "content+=.3");
             }
             serviceLoadingAnimation();
         </script>
