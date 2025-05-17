@@ -8,7 +8,7 @@ let ctaTl = gsap.timeline({
     scrollTrigger: {
         trigger: ".cta-wrapper-index",
         start: "top 60%",
-        toggleActions: "play none none reset",
+        toggleActions: "play none none none",
     },
 });
 ctaTl.from(ctaHeading, {
@@ -16,29 +16,29 @@ ctaTl.from(ctaHeading, {
     opacity: 0,
     duration: .8,
 })
-ctaTl.from(ctaSubHeading, {
+.from(ctaSubHeading, {
     yPercent: 100,
     opacity: 0,
     duration: .8, 
 }, "<")
-ctaTl.from(ctaText, {
+.from(ctaText, {
     yPercent: 100,
     opacity: 0,
     duration: .8,
 }, "<")
-ctaTl.from(ctaH4, {
+.from(ctaH4, {
     yPercent: 100,
     opacity: 0,
     duration: .8,
     delay: 1,
 }, "<")
-ctaTl.from(".buttons", {
+.from(".buttons", {
     scale: 0,
     // opacity: 0,
     duration: .8,
     stagger: 0.3,
 }, "<")
-ctaTl.from(".cube-container", {
+.from(".cube-container", {
     scale: 0,
     duration: .8,
 }, "<")

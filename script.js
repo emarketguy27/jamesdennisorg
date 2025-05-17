@@ -45,8 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll("a");
     navLinks.forEach(link => {
         link.addEventListener("click", (e) => {
-            console.log(e.target.hostname);
-            console.log(window.location.hostname);
             if (
                 e.target.hostname === window.location.hostname &&
                 e.target.getAttribute("href").indexOf("#") === -1 &&
@@ -54,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
             )   {
                 e.preventDefault();
                 let destination = e.target.getAttribute("href");
-                gsap.fromTo(".bar", {height: 0,}, {height: "105vh", stagger: { amount: 0.2, from: "center"}, ease: "power4.out",
+                gsap.fromTo(".bar", {height: 0,}, {height: "105vh", stagger: { amount: 0.2, from: "center"},
+
                     onComplete: () => {
                         window.location = destination;
                     }
