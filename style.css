@@ -174,6 +174,7 @@ body {
     transition: 0.3s ease-in-out;
     background: var(--color-background);
     color: var(--color-text);
+    cursor: crosshair;
     /* Thank You Modal */
     .thank-you-modal {
         position: fixed !important;
@@ -298,10 +299,46 @@ a {
     /* color: var(--main-accent-color); */
     text-decoration: none;
     font-weight: 500;
+    cursor: none;
     &:hover {
         text-decoration: none;
     }
 }
+select {
+    cursor: text;
+}
+/* Custom Cursors */
+.circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    translate: 0px -12px!important;
+}
+.circle svg {
+    transition: all var(--transition-default);
+    /* scale: 2; */
+    rotate: 45deg;
+    opacity: 0.6;
+}
+.circle.hover-circle svg{
+    scale: 2;
+    translate: 0px 0px;
+    fill: orangered!important;
+    rotate: 0deg;
+    opacity: .7;
+}
+/* .cursor {
+    position: fixed;
+    width: 15px; 
+    height: 15px;
+    border-radius: 50%;
+    background-color: black;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+    pointer-events: none;
+} */
 /* ---------- MAIN BUTTON STYLING ---------- */
 /* All Buttons */
 .buttons {
@@ -323,7 +360,7 @@ a {
     margin: var(--spacing);
     border-radius: 4px;
     transition: var(--transition-buttons);
-    cursor: pointer;
+    cursor: crosshair; 
     z-index: 1;
 }
 /* Explore / Jump-to Buttons */
@@ -537,7 +574,6 @@ button[type="submit"] {
             transform: translateX(-2px);
             padding-left: 6px;
             transition: all 0.7s;
-            /* color: var(--color-brand); */
             text-decoration: none;
         }
     }
@@ -552,7 +588,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    z-index: +1;
+    z-index: 9999;
     transition: scale var(--transition_flip);
     transform-origin: top;
     transition-delay: 300ms;
@@ -806,7 +842,12 @@ header {
         /* height: 100vh; */
     }
 }
-
+header.hidden {
+    opacity: 0;
+    scale: 1 0!important;
+    transform-origin: top;
+    transition: var(--transition-cubic);
+}
 
 /* ---------- CONTENT STYLING ---------- */
 .content-wrapper {
@@ -919,7 +960,7 @@ header {
                 }
                 & .thumbnail-overlay {
                     position:absolute;
-                    top: 0;
+                    top: -2px;
                     left: 0;
                     width: 102%;
                     height: 102%;
@@ -931,6 +972,7 @@ header {
                 &:hover {
                     opacity: 1!important;
                     &::after {
+                        top: -2px;
                         opacity: 1;
                         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);/* background: linear-gradient(0deg, rgba(26,31,35,0) 70%, rgba(26,31,35,1) 90%); */
                     }
@@ -951,7 +993,7 @@ header {
                 grid-column: 1/-1;
                 grid-row: 1;
                 padding-inline: var(--spacing-double);
-                text-align: left;
+                text-align: center;
                 @media (max-width: 900px) {
                     text-align: center;
                 }
@@ -1248,7 +1290,7 @@ header {
                         padding: 12px 24px;
                         border-radius: 6px;
                         margin-top: 20px;
-                        cursor: pointer;
+                        cursor: alias;
                         transition: all 0.3s ease;
                     }
                 }
@@ -1572,7 +1614,6 @@ header {
         border: 1px solid var(--color-border);
         border-radius: calc(0.5rem - 2px);
         box-shadow: var(--shadow-bottom);
-        cursor: pointer;
         width: 74%;
         z-index: +1;
         & > button {
@@ -1717,7 +1758,7 @@ header {
     }
     .quiz-error {
         position: absolute;
-        bottom: 10vh;
+        bottom: 12vh;
         color: orangered;
         transition: all .2s ease;
         @starting-style {
@@ -1742,7 +1783,7 @@ header {
         gap: 1em;
         button {
             width: 7em;
-            cursor: pointer;
+            cursor: alias;
             background-color: var(--color-accent-light);
             border: none;
             border-radius: 6px;
@@ -1867,7 +1908,7 @@ header {
         appearance: none;         /* Standard property */
         width: 60px;
         height: 40px;
-        cursor: pointer;
+        cursor: copy;
         border: none;
         border-radius: 4px;
         padding: 0!important;

@@ -40,7 +40,7 @@
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
         </div>
-        <header class="header" id="header">
+        <header class="header hidden" id="header">
             <div class="logo-switch-container">
                 <a href="/index.html" class="logo-title">
                 <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo" style="z-index: -1;">
@@ -130,6 +130,10 @@
                 </div>
             </div>
         </header>
+
+        <div class="circle">
+            <svg width="40" height="40"><circle cx="20" cy="20" r="20" fill="var(--color-brand-light)"></circle></svg>
+        </div>
 
         <div class="content-wraper" id="top">
             <div class="form-container overlay">
@@ -250,9 +254,9 @@
                     line.innerHTML = `<span>${content}</span>`;
                 });
                 
-                gsap.set(".hero-title .line span", {display: "block",})
+                gsap.set(".hero-title .line span", {display: "block",});
                 gsap.set(".hero-title .char", {opacity: 0.05,});
-                gsap.set(".header", {yPercent: -100,})
+                gsap.set(".header", {yPercent: -100,});
                 gsap.set(".load-text", {display: "grid",});
 
                 let entryTl = gsap.timeline();
@@ -268,8 +272,8 @@
                 .to('.load-text', {yPercent: -100, opacity: 0, display: "none", duration: .3}, "loader+=1")
                 .to(loader, {height: 0,}, "-=.5")
                 .add("content") // timing marker (content)
-
-                .to(".header", {yPercent: 0,}, "content")
+                document.getElementById("header").classList.remove("hidden");
+                entryTl.to(".header", {yPercent: 0,}, "content")
                 .from(".hero-title .line span", {yPercent: 200, opacity: 0,}, "content")
                 .to(".hero-title .char", {opacity: 1, y: 0, stagger: 0.04,}, ">");
             }

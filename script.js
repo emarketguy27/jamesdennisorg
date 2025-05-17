@@ -38,10 +38,11 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 //---------------------------------------------------------------------
-//--------------------Page Navigation Transitions----------------------
+//--------------------DOM Content Loaded Scripts-----------------------
 // --------------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
+    //--------------------Page Navigation Transitions------------------
     const navLinks = document.querySelectorAll("a");
     navLinks.forEach(link => {
         link.addEventListener("click", (e) => {
@@ -52,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             )   {
                 e.preventDefault();
                 let destination = e.target.getAttribute("href");
+                document.getElementById("header").classList.add("hidden");
                 gsap.fromTo(".bar", {height: 0,}, {height: "105vh", stagger: { amount: 0.2, from: "center"},
 
                     onComplete: () => {
@@ -62,17 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
             
         });
     });
-})
 
-// --------------------------------------------------------------------
-// ----------Hide/Show navbar & ScrolltoTop on scroll up/down----------
-// --------------------------------------------------------------------
-var prevScrollpos = window.pageYOffset;
-const scrollHeight = document.documentElement.scrollHeight;
+    // --------------------------------------------------------------------
+    // ----------Hide/Show navbar & ScrolltoTop on scroll up/down----------
+    // --------------------------------------------------------------------
+    var prevScrollpos = window.pageYOffset;
+    const scrollHeight = document.documentElement.scrollHeight;
 
-window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-    scrollPercent = ((currentScrollPos / scrollHeight) * 100).toFixed();
+    window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        scrollPercent = ((currentScrollPos / scrollHeight) * 100).toFixed();
 
         if (prevScrollpos < currentScrollPos && scrollPercent > 10) {
             // document.getElementById("header").style.top = "-80px";
@@ -92,15 +93,43 @@ window.onscroll = function() {
             }
         }
         prevScrollpos = currentScrollPos;  
+    };
+    
+    // ----------------------------------------------------------
+    // ----------------Main Sub-Menu Modal-----------------------
+    // ----------------------------------------------------------
+    function modalVisible() {
+        var element = document.getElementById("menu-modal");
+        element.classList.toggle("visible");
     }
 
-// ----------------------------------------------------------
-// ----------------Main Sub-Menu Modal-----------------------
-// ----------------------------------------------------------
-function modalVisible() {
-    var element = document.getElementById("menu-modal");
-    element.classList.toggle("visible");
-    }
+    // ------------------Custom Cursor---------------------------
+
+    var mouseCursor = document.getElementById('circle');
+    function moveMouseCursor(e) {
+        gsap.to(mouseCursor, .3, {
+            css: {
+                x: e.clientX,
+                y: e.clientY
+            }
+        });
+    };
+    window.addEventListener("mousemove", moveMouseCursor);
+    var hoverLinks = Array.from(document.querySelectorAll("a"));
+    hoverLinks.forEach(hoverLink => {
+        hoverLink.addEventListener('mousemove', function () {
+            mouseCursor.classList.add('hover-circle');
+        })
+        hoverLink.addEventListener('mouseleave', function () {
+            mouseCursor.classList.remove('hover-circle');
+        })
+    });
+
+})
+
+
+
+
 
 // ----------------------------------------------------------
 // -------------Theme Preference Light/Dark------------------
