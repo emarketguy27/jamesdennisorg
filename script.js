@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var mouseCursor = document.getElementById('circle');
     function moveMouseCursor(e) {
-        gsap.to(mouseCursor, .3, {
+        gsap.to(mouseCursor, .6, {
             css: {
                 x: e.clientX,
                 y: e.clientY
@@ -116,12 +116,46 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     window.addEventListener("mousemove", moveMouseCursor);
     var hoverLinks = Array.from(document.querySelectorAll("a"));
+    var cards = Array.from(document.querySelectorAll(".thumbnail.item"));
+    var hireBtns = Array.from(document.querySelectorAll(".hire-btn"));
+
+    const cursorImage = document.querySelector(".cursor-logo");
+    const cursorHoverImage = document.querySelector(".cursor-hover");
+    const cardOpenImage = document.querySelector(".card-open");
+    const buttonImage = document.querySelector(".hire-icon");
+
     hoverLinks.forEach(hoverLink => {
         hoverLink.addEventListener('mousemove', function () {
-            mouseCursor.classList.add('hover-circle');
+            cursorImage.style.opacity = "0";
+            cursorHoverImage.style.opacity = "1";
         })
         hoverLink.addEventListener('mouseleave', function () {
-            mouseCursor.classList.remove('hover-circle');
+            cursorImage.style.opacity = ".6";
+            cursorHoverImage.style.opacity = "0";
+        })
+    });
+    cards.forEach(card => {
+        card.addEventListener('mousemove', function () {
+            cursorImage.style.opacity = "0";
+            cardOpenImage.style.opacity = "1";
+            cardOpenImage.style.scale = "1.8";
+        })
+        card.addEventListener('mouseleave', function () {
+            cursorImage.style.opacity = ".6";
+            cardOpenImage.style.opacity = "0";
+            cardOpenImage.style.scale = "0";
+        })
+    });
+    hireBtns.forEach(hireBtn => {
+        hireBtn.addEventListener('mousemove', function () {
+            cursorImage.style.opacity = "0";
+            buttonImage.style.opacity = "1";
+            buttonImage.style.scale = "1.8";
+        })
+        hireBtn.addEventListener('mouseleave', function () {
+            cursorImage.style.opacity = ".6";
+            buttonImage.style.opacity = "0";
+            buttonImage.style.scale = "0";
         })
     });
 

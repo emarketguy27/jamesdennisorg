@@ -314,20 +314,16 @@ select {
     left: 0;
     pointer-events: none;
     z-index: 9999;
-    translate: 0px -12px!important;
-}
-.circle svg {
-    transition: all var(--transition-default);
-    /* scale: 2; */
-    rotate: 45deg;
-    opacity: 0.6;
-}
-.circle.hover-circle svg{
-    scale: 2;
-    translate: 0px 0px;
-    fill: orangered!important;
-    rotate: 0deg;
-    opacity: .7;
+    translate: 0px 0px!important;
+    img {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        top: -20px;
+        left: -20px;
+        opacity: .6;
+        transition: all .3s;
+    }
 }
 /* .cursor {
     position: fixed;
@@ -426,6 +422,7 @@ select {
 .button.hire-btn {
     background-color: var(--color-accent);
     position: relative;
+    cursor: none;
     & span {
         color: var(--color-background);
         font-weight: 700;
@@ -910,11 +907,9 @@ header.hidden {
                 height: 100%;
                 background-size: cover;
                 background-position: center;
-                cursor: crosshair;
+                cursor: none;
                 position: relative;
                 overflow: hidden;
-                /* opacity: 0; */
-                /* clip-path: polygon(0 0%, 100% 0%, 100% 0%, 0 0%); */
                 .thumb-title {
                     color: var(--color-text-alt);
                 }
@@ -1132,6 +1127,7 @@ header.hidden {
         }
     }
     & .content-section {
+        container-type: inline-size;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -1240,12 +1236,15 @@ header.hidden {
         }
         &.wordpress-container {
             .wordpress-path-container {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(500px, 600px));
-                padding: 1em;
-                gap: 30px;
+                container-type: inline-size;
+                width: 100%;
+                display: flex;
                 justify-content: center;
+                flex-wrap: nowrap;
+                padding-block: var(--spacing-triple);
+                gap: 30px;
                 .path-card {
+                    width: 550px;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -2398,7 +2397,12 @@ footer {
         column-count: 1!important;
     }
 }
-
+/* ---------- CONTAINER QUERIES -----------*/
+@container (max-width: 1268px) {
+    .wordpress-path-container {
+        flex-wrap: wrap!important;
+    }
+}
 /* MASK SLIDE EFFECTS */
 @property --position {
         syntax: "<percentage>";
