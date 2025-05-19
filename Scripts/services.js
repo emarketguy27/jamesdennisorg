@@ -122,3 +122,23 @@ gsap.utils.toArray(".section-title").forEach((title, i) => {
 		duration: .5,
 	});
 });
+const scrollers = document.querySelectorAll(".marquee-horizontal");
+
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  addAnimation();
+}
+
+function addAnimation() {
+  scrollers.forEach(scroller => {
+    scroller.setAttribute("data-animated", true);
+    
+    const marqueeText = scroller.querySelector('.track-horizontal');
+    const scrollerItems = Array.from(marqueeText.children);
+    
+    scrollerItems.forEach(item => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute('aria-hidden', true);
+      marqueeText.appendChild(duplicatedItem);
+    })
+  });
+}
