@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cursorHoverImage.style.opacity = "1";
         })
         hoverLink.addEventListener('mouseleave', function () {
-            cursorImage.style.opacity = ".6";
+            cursorImage.style.opacity = ".4";
             cursorHoverImage.style.opacity = "0";
         })
     });
@@ -138,10 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
         card.addEventListener('mousemove', function () {
             cursorImage.style.opacity = "0";
             cardOpenImage.style.opacity = "1";
-            cardOpenImage.style.scale = "1.8";
+            cardOpenImage.style.scale = "1.5";
         })
         card.addEventListener('mouseleave', function () {
-            cursorImage.style.opacity = ".6";
+            cursorImage.style.opacity = ".4";
             cardOpenImage.style.opacity = "0";
             cardOpenImage.style.scale = "0";
         })
@@ -150,10 +150,10 @@ document.addEventListener("DOMContentLoaded", () => {
         hireBtn.addEventListener('mousemove', function () {
             cursorImage.style.opacity = "0";
             buttonImage.style.opacity = "1";
-            buttonImage.style.scale = "1.8";
+            buttonImage.style.scale = "1.5";
         })
         hireBtn.addEventListener('mouseleave', function () {
-            cursorImage.style.opacity = ".6";
+            cursorImage.style.opacity = ".4";
             buttonImage.style.opacity = "0";
             buttonImage.style.scale = "0";
         })

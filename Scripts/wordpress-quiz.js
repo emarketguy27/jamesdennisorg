@@ -33,10 +33,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
       document.querySelectorAll('input[name="brandMaterials"]').forEach(radio => {
         radio.addEventListener('change', (e) => {
-          console.log("selection changed");
           const uploadSection = e.target.closest('.quiz-step').querySelector('.brand-upload');
-          uploadSection.style.display = e.target.value === 'yes' ? 'block' : 'none';
-          uploadSection.classList.toggle ("active");
+          const quizContent = e.target.closest('.quiz-content');
+
+          if (e.target.value === 'yes') {
+            uploadSection.style.display = 'block';
+            quizContent.style.height = "90vh";
+          } else {
+            quizContent.style.height = '';
+            uploadSection.style.display = 'none';
+          }
             
         });
       });
