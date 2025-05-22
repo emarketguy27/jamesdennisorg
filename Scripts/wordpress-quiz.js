@@ -35,13 +35,23 @@ document.addEventListener('DOMContentLoaded', function() {
         radio.addEventListener('change', (e) => {
           const uploadSection = e.target.closest('.quiz-step').querySelector('.brand-upload');
           const quizContent = e.target.closest('.quiz-content');
+          const contentGroup = Array.from(document.querySelectorAll('.upload-group'));
 
           if (e.target.value === 'yes') {
             uploadSection.style.display = 'block';
+            setTimeout(() => {
+              contentGroup.forEach(group => {group.classList.add('visible');});
+            }, "100");
+            
             quizContent.style.height = "90vh";
           } else {
-            quizContent.style.height = '';
-            uploadSection.style.display = 'none';
+            
+            contentGroup.forEach(group => {group.classList.remove('visible');});
+            setTimeout(() => {
+              quizContent.style.height = '';
+              uploadSection.style.display = 'none';
+            }, "200");
+            
           }
             
         });

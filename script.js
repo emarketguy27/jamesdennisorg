@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var hoverLinks = Array.from(document.querySelectorAll("a"));
     var cards = Array.from(document.querySelectorAll(".thumbnail.item"));
     var hireBtns = Array.from(document.querySelectorAll(".hire-btn"));
+    var pathCards = Array.from(document.querySelectorAll(".path-card"));
 
     const cursorImage = document.querySelector(".cursor-logo");
     const cursorHoverImage = document.querySelector(".cursor-hover");
@@ -146,19 +147,30 @@ document.addEventListener("DOMContentLoaded", () => {
             cardOpenImage.style.scale = "0";
         })
     });
-    hireBtns.forEach(hireBtn => {
-        hireBtn.addEventListener('mousemove', function () {
-            cursorImage.style.opacity = "0";
+    // hireBtns.forEach(hireBtn => {
+    //     hireBtn.addEventListener('mousemove', function () {
+    //         cursorImage.style.opacity = "0";
+    //         buttonImage.style.opacity = "1";
+    //         buttonImage.style.scale = "1.5";
+    //     })
+    //     hireBtn.addEventListener('mouseleave', function () {
+    //         cursorImage.style.opacity = ".4";
+    //         buttonImage.style.opacity = "0";
+    //         buttonImage.style.scale = "0";
+    //     })
+    // });
+    pathCards.forEach(pathCard => {
+        pathCard.addEventListener('mousemove', function () {
+           cursorImage.style.opacity = "0";
             buttonImage.style.opacity = "1";
-            buttonImage.style.scale = "1.5";
+            buttonImage.style.scale = "1.5"; 
         })
-        hireBtn.addEventListener('mouseleave', function () {
+        pathCard.addEventListener('mouseleave', function () {
             cursorImage.style.opacity = ".4";
             buttonImage.style.opacity = "0";
             buttonImage.style.scale = "0";
         })
     });
-
 })
 
 
