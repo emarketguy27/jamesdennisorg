@@ -1608,14 +1608,15 @@ header.hidden {
         opacity: 1;
     }
     .quiz-content {
-        display: flex;
-        flex-direction: column;
-        /* justify-content: space-between; */
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, auto);
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* align-items: center; */
         width: 80vw;
         max-width: 600px;
         height: 40vh;
-        /* gap: var(--spacing-triple); */
         background: var(--color-background-alt);
         padding: var(--spacing-double);
         border-radius: 12px;
@@ -1623,18 +1624,20 @@ header.hidden {
         position: relative;
         transition: height .3s ease;
         h2 {
-            margin-block: 8px;
+            margin-block: 0;
+            font-size: var(--font-large);
             color: var(--color-accent);
         }
     }
     .step-wrapper {
+        grid-row: 2 / 6;
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         width: 100%;
-        height: 20vh;
+        min-height: 20vh;
         transition: var(--transition-default);
     }
     .step-wrapper:has(.brand-upload.active) {
@@ -1676,6 +1679,7 @@ header.hidden {
             width: 80%;
             margin-bottom: var(--spacing-double);
             input[type="email"] {
+                font-size: unset;
                 width: 100%;
             }
         }
@@ -1702,7 +1706,7 @@ header.hidden {
         border: 1px solid var(--color-border);
         border-radius: calc(0.5rem - 2px);
         box-shadow: var(--shadow-bottom);
-        width: 74%;
+        width: 80%;
         z-index: +1;
         & > button {
             display: flex;
@@ -1964,13 +1968,24 @@ header.hidden {
     }
     input[type="url"] {
         appearance: base-select;
+        color: var(--color-text-alt);
+        background-color: transparent;
+        box-sizing: border-box;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid var(--color-border);
+        border-radius: calc(0.5rem - 2px);
+        box-shadow: var(--shadow-bottom);
+        width: 80%;
+        z-index: +1;
+        font-size: unset;
+        /* appearance: base-select;
         font-family: 'Cairo', sans-serif;
         width: 80%;
         margin-block: var(--spacing);
-        /* font-size: 110%; */
+        font-size: 110%;
         border: 1px solid var(--color-border);
         padding: var(--spacing-half);
-        border-radius: 6px;
+        border-radius: 6px; */
     }
     input[type="file"] {
         /* width: 100%; */
