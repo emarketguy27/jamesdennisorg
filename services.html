@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="/style.css">
     
 </head>
-    <body>
-        <div class="loader-container" style="position: fixed; width: 100%; height: 100vh; z-index: 9999; display: flex;">
+    <body data-page="services">
+        <div class="loader-container">
             <h3 class="load-text" style="position: fixed; top: 50%; width: 100%; display: none; place-items: center; margin-inline: auto">jamesdennis.org</h3>
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
@@ -40,101 +40,11 @@
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
         </div>
-        <header class="header hidden" id="header">
-            <div class="logo-switch-container">
-                <a href="/index.html" class="logo-title">
-                <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo" style="z-index: -1;">
-                <p class="logo-text" style="z-index: -1;">james dennis</p>
-                </a>    
-            </div>
-            <nav>
-                <div class="availability"><p>availability: <span id="datetime"></span></p></div>
-                <div class="nav-links_container">
-                    <div class="nav-link_wrapper">
-                        <div class="nav-link_bg"></div>
-                        <a href="/plugins.html" class="nav-link">
-                            <div class="nav-link_overflow">
-                                <div class="nav-link_text-a">
-                                    <div class="nav-link_p">plugins</div>
-                                </div>
-                                <div class="nav-link_text-b">
-                                    <div class="nav-link_p">plugins</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
-                    <div class="nav-link_wrapper" style="position: relative">
-                        <div class="nav-link_bg"></div>
-                        <a href="/services.html" class="nav-link">
-                            <div class="nav-link_overflow">
-                                <div class="nav-link_text-a">
-                                    <div class="nav-link_p">services</div>
-                                </div>
-                                <div class="nav-link_text-b">
-                                    <div class="nav-link_p">services</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
-                    <div class="nav-link_wrapper" id="nav-link-cta">
-                        <div class="nav-link_bg"></div>
-                        <a href="/contact.html" class="nav-link">
-                            <div class="nav-link_overflow">
-                                <div class="nav-link_text-a">
-                                    <div class="nav-link_p">book me</div>
-                                </div>
-                                <div class="nav-link_text-b">
-                                    <div class="nav-link_p" style="color: var(--color-brand);">book me</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
-                </div>
-                <div class="open-icon-container">
-                    <img class="modal-open"
-                    alt="mobile-menu"
-                    id="menu-open" 
-                    src="/Assets/Fonts/Material-icons/Purple/menu_open_30dp_6D76C5_FILL0_wght400_GRAD0_opsz24.png"
-                    onclick="modalVisible()">   
-                </div>
-            </nav>
-            
-            <div class="modal" id="menu-modal">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <ul class="modal-list">
-                            <li><a href="/index.html">home</a></li>
-                            <li>
-                                <a href="/services.html">services</a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/code_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png">
-                                        <a href="#webdev" onclick="modalVisible()">Web Development</a>
-                                    </li>
-                                    <li>
-                                        <img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/w-logo-blue.png">
-                                        <a href="#wordpress" onclick="modalVisible()">WordPress</a>
-                                    </li>
-                                    <li>
-                                        <img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/devices_other_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png">
-                                        <a href="#mobile_app" onclick="modalVisible()">Mobile Apps</a>
-                                    </li>
-                                    <li>
-                                        <img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/query_stats_30dp_0074A2_FILL0_wght400_GRAD0_opsz24 (1).png">
-                                        <a href="#seo" onclick="modalVisible()">SEO</a>
-                                    </li> 
-                                </ul>
-                            </li>
-                            <li><a href="/contact.html">bookMe</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <div id="header-placeholder"></div>
 
         <div class="content-wrapper" id="top">
             <div class="services-wrapper services wrap-with-fade gsap-div-services" id="services">
-                <h1 style="text-align: center;">Freelance Services</h1>
+                <h1 class="hero-title">Freelance Services</h1>
                 <div class="images-grid">
                     <h2>Core Principles of Great Web Design</h2>
                     <div class="thumbnail item" 
@@ -205,7 +115,7 @@
                     </div>
                 </div>
                 <div class="detail">
-                    <img />
+                    <img alt="service-image"/>
                     <div class="content">
                         <h2 class="title">Placeholder title</h2>
                         <h3 class="secondary">Placeholder secondary</h3>
@@ -263,7 +173,7 @@
                         </div>
                         <div class="item-right marquee-text 4">
                             <div class="item-content">
-                                <p>APIs that talk, databases that perform, and zero ‘Oops, it crashed’ moments.</p></button>
+                                <p>APIs that talk, databases that perform, and zero ‘Oops, it crashed’ moments.</p>
                             </div>
                         </div>
                         <div class="item-right marquee-text 3">
@@ -274,60 +184,6 @@
                     </div>
                     </div>
                 </div>
-                <!-- <div class="service-list-mobile">
-                    <div class="service-row">
-                        <div class="item-left">
-                            <span class="number">01</span>
-                            <h3 class="headline">Design That Feels Intuitive, Not Forced</h3>
-                        </div>
-                        <div class="item-right">
-                            <div class="item-content">
-                                <p>From wireframes to flawless launches—and updates that keep your site feeling fresh.</p>
-                                <h4>See My Process</h4>
-                                <button>Audit My UI<span>🎯→✨</span></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-row">
-                        <div class="item-left">
-                            <span class="number">02</span>
-                            <h3 class="headline">Visual Storytelling That Hooks Visitors</h3>
-                        </div>
-                        <div class="item-right">
-                            <div class="item-content">
-                                <p>Your brand isn’t just colors and fonts—it’s an emotion. Let’s make it unforgettable</p>
-                                <h4>View Portfolio</h4>
-                                <button>Steal My Style Guide Tips<span>🖌️→🎥</span></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-row">
-                        <div class="item-left">
-                            <span class="number">03</span>
-                            <h3 class="headline">Optimised UX That Converts Browsers</h3>
-                        </div>
-                        <div class="item-right">
-                            <div class="item-content">
-                                <p>Smooth flows, fewer frustrations, more ‘Hell Yes’ moments for your users.</p>
-                                <h4>Where's Your UX Losing Users...?</h4>
-                                <button>Fix My Friction Points<span>📉→📈</span></button> 
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="service-row">
-                        <div class="item-left">
-                            <span class="number">04</span>
-                            <h3 class="headline">Backend Harmony, Frontend Magic</h3>
-                        </div>
-                        <div class="item-right">
-                            <div class="item-content">
-                                <p>APIs that talk, databases that perform, and zero ‘Oops, it crashed’ moments.</p>
-                                <h4>Tech Stack I Love</h4>
-                                <button>Does My Site Need A Backend Boost...?<span>⚙️→🤖</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </section>
 
             <div class="cta-wrapper">
@@ -404,7 +260,7 @@
                             <!-- Step 1 - Updated Options -->
                             <div class="quiz-step active" data-step="1">
                                 <p>What's the primary purpose of your site?</p>
-                                <select class="quiz-input">
+                                <select title="quiz-user-options" class="quiz-input">
                                 <option value="">Select...</option>
                                 <option value="branding">Brand Awareness</option>
                                 <option value="ecommerce">E-commerce Store</option>
@@ -547,7 +403,7 @@
                 <section class="cta-section">
                     <h2>I Can Do WordPress...</h2>
                     <!-- <div type="button" class="button hire-btn"><a href="/contact.html"><span>Get a Quote</span></a></div> -->
-                    <div class="body-link_wrapper" id="body-link-cta">
+                    <div class="body-link_wrapper" id="body-link-cta-wordpress">
                         <div class="nav-link_bg"></div>
                         <a href="/contact.html" class="nav-link">
                             <div class="nav-link_overflow">
@@ -620,7 +476,7 @@
                 <section class="cta-section">
                     <h2>Awesome Apps... Done...!</h2>
                     <!-- <div type="button" class="button hire-btn"><a href="/contact.html"><span>Get a Quote</span></a></div> -->
-                    <div class="body-link_wrapper" id="body-link-cta">
+                    <div class="body-link_wrapper" id="body-link-cta-apps">
                         <div class="nav-link_bg"></div>
                         <a href="/contact.html" class="nav-link">
                             <div class="nav-link_overflow">
@@ -689,8 +545,7 @@
             <div class="cta-wrapper-last">
                 <section class="cta-section">
                     <h2>Let's Make Great Things Together...</h2>
-                    <!-- <div type="button" class="button hire-btn"><a href="/contact.html"><span>Get a Quote</span></a></div> -->
-                    <div class="body-link_wrapper" id="body-link-cta">
+                    <div class="body-link_wrapper" id="body-link-cta-last">
                         <div class="nav-link_bg"></div>
                         <a href="/contact.html" class="nav-link">
                             <div class="nav-link_overflow">
@@ -710,8 +565,6 @@
                             <div class="icons-container">
                                 <div class="footer-socials boxed">
                                     <a href="https://linkedin" id="linkedin"><i class="fa-brands fa-linkedin fa-xl" style="color: #74C0FC;"></i></a>
-                                    <!-- <a href="https://facebook" id="facebook"></a> -->
-                                    <!-- <a href="https://instagram" id="instagram"></a> -->
                                     <a href="https://X" id="xcom"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #fafafa;"></i></a>
                                     <a href="https://github.com" id="github"><i class="fa-brands fa-square-github fa-xl" style="color: #8ba0c6;"></i></a>
                                     <a href="https://codepen.io/James-Dennis-Frontend-Developer" id="codepen"><i class="fa-brands fa-codepen fa-lg" style="color: #ffffff;"></i></a>
@@ -723,127 +576,40 @@
             </div>
         </div>
 
-        <footer class="footer">
-            <div class="footer-site-logo">
-                <a href="/" class="logo-title">
-                    <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo">
-                    <p class="logo-text">james dennis</p> 
-                </a>
-            </div>
-            <div class="contact-row">
-                <div class="contact-box availability">
-                    <h3>Available:</h3>
-                    <p><span id="datetime"></span></p>
-                </div>
-                <div class="contact-box contact">
-                    <h3>Contact:</h3>
-                    <p><a href="mailto:james@jamesdennis.org">james@jamesdennis.org</a></p>
-                </div>
-                <div class="contact-box copyright">
-                    <h3>Copyright:</h3>
-                    <p>jamesdennis &copy <span><script>document.write(new Date().getFullYear())</script></span></p>
-                </div>
-            </div>
-            <!-- Scroll To Top -->
-            <div class="scroll-to-top-container" id="toTop">
-                <a href="#top" onclick="lenis.scrollTo('#top')">
-                    <img class="scroll-to-top" src="/Assets/Fonts/Material-icons/Blue/vertical_align_top_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png" alt="scroll to top">
-                </a>  
-            </div>
-        </footer>
-        
-
-        <script> // Date - Time script
-            function dateTime() {
-                // Get current date and time
-            const date = new Date();
-            const years = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
-            const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(date);
-            datetime = month + " " + years;
-            currentYear = years;
-            // Set the copyright year
-            document.querySelector('.copyright p').innerHTML = "© " + currentYear + " James Dennis";
-            // Display the date and time in the element with id="datetime"
-            document.getElementById("datetime").innerHTML = datetime;
-            }
-            dateTime();
-        </script> 
+        <div id="footer-placeholder"></div>
+         
         <script src="https://unpkg.com/split-type"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Flip.min.js"></script>
-        <script src="script.js"></script>
         <script src="/Scripts/services.js"></script>
         <script src="/Scripts/gsap.js"></script>
-        <script src="/Scripts/darkmode.js"></script>
+        <script src="script.js"></script>
         <script src="/Scripts/wordpress-quiz.js"></script>
-        <script> // Entry Animations
+        <!-- <script>
             function serviceLoadingAnimation() {
-                gsap.set(".load-text", {display: "grid",});
-                
+                gsap.set(".images-grid h2", {y: 60,opacity: 0});
+
+                let tl = gsap.timeline();
+
                 let targets = gsap.utils.toArray(".images-grid .item");
-                targets.forEach(target => {
-                    gsap.set(target, {
-                        clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
-                    })
-                });
-                const loader = document.querySelector('.loader-container');
-                const bars = document.querySelectorAll('.bar');
-                const headline = new SplitType("h1", {
-                    type: "lines",
-                });
-                headline.lines.forEach((line) => {
-                    const content = line.innerHTML;
-                    line.innerHTML = `<span>${content}</span>`;
-                });
-                
-                gsap.set(".header", {yPercent: -100,});
-                gsap.set("h1 .line span", {
-                    display: "block",
-                })
-                gsap.set("h1 .char", {y: 30, opacity: 0,});
-                gsap.set(".images-grid h2", {y: -30, opacity: 0,});
-                document.getElementById("header").classList.remove("hidden");
-                let entryTl = gsap.timeline();
-                entryTl.add("loader") // timing marker (loader)
-                .fromTo(".load-text", {opacity: 0, yPercent: 100,}, {opacity: 1, yPercent: 0,}, "loader")
-                .to(bars, {
-                    duration: .5, 
-                    height: 0, 
-                    stagger: {from: "center", amount: 0.2,},
-                    delay: 1,
-                    ease: "power4.inOut",
-                }, "loader")
-                .to('.load-text', {opacity: 0, yPercent: -100, display: "none", duration: .3}, "loader+=1")
-                .to(loader, {height: 0,}, "-=.5")
-                .add("content") // timing marker (content)
-                
-                // Content after loader
-                entryTl.to("h1 .char", {
-                    y:0,
-                    opacity: 1,
-                    duration: .5,
-                    stagger: 0.05,
-                }, "content")
-                .to(".images-grid h2", {
+                targets.forEach(target => {gsap.set(target, {clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",})});
+
+                tl.to(".images-grid h2", {
                     y: 0,
                     opacity: 1,
                     duration: .7,
                     ease: "bounce.out",
-                }, "content+=.3")
-                .to(".header", {
-                    yPercent: 0,
-                    duration: 1,
-                    ease: "bounce.out",
-                }, "content")
+                    delay: 2
+                })
                 .to(".images-grid .item", {
                     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
                     duration: 1,
                     stagger: .075,
                     ease: "power4.out",
-                }, "content+=.3");
+                }, "<");
             }
             serviceLoadingAnimation();
-        </script>
+        </script> -->
     </body>
 </html>

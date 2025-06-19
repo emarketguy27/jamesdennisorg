@@ -141,6 +141,14 @@ background-color: var(--color-accent-light);
 }
 
 /* ----------        COMPONENTS         ---------- */
+/* ----------          LOADER           ---------- */
+.loader-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+}
 /* ----------    COMPONENTS: BUTTONS    ---------- */
 .buttons {
     display: flex;
@@ -388,7 +396,7 @@ h1 {
     font-size: var(--font-xx-large);
     line-height: 1.1;
     letter-spacing: 2px;
-    /* text-align: center; */
+    text-align: center;
 }
 h2 {
     font-weight: 700;
@@ -428,40 +436,7 @@ a {
 select {
     cursor: text;
 }
-@media screen and (max-width: 768px) {
-  .circle {
-    display: none;
-  }
-}
-/* Custom Cursors */
-.circle {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    translate: 0px 0px!important;
-    img {
-        position: fixed;
-        width: 40px;
-        height: 40px;
-        top: 0px;
-        left: 0px;
-        opacity: .4;
-        transition: all .3s;
-    }
-}
-/* .cursor {
-    position: fixed;
-    width: 15px; 
-    height: 15px;
-    border-radius: 50%;
-    background-color: black;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s;
-    pointer-events: none;
-} */
+
 /* ---------- MAIN BUTTON STYLING ---------- */
 /* All Buttons */
 
@@ -946,7 +921,7 @@ header.hidden {
 /* ---------- CONTENT STYLING ---------- */
 .content-wrapper {
     margin: 0;
-    padding: 0;
+    /* padding-top: var(--spacing-triple); */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1231,7 +1206,7 @@ header.hidden {
         position: relative;
         z-index: 2;
         width: 100%;
-        min-height: 91vh;
+        min-height: 100vh;
         text-align: center;
         background-color: var(--color-foreground);
         box-shadow: var(--shadow-bottom);
@@ -1971,9 +1946,6 @@ header.hidden {
         padding: var(--spacing-half);
         border-radius: 6px; */
     }
-    input[type="file"] {
-        /* width: 100%; */
-    }
     .upload-group label {
         display: block;
         margin-bottom: 0.5rem;
@@ -2174,6 +2146,10 @@ header.hidden {
 }
 
 /* ---------- Plugins Page ---------- */
+.plugins-title {
+    margin-top: var(--spacing-triple);
+    padding-top: var(--spacing-triple);
+}
 .plugin-container {
     display: flex;
     flex-direction: row;
@@ -2227,10 +2203,8 @@ header.hidden {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    margin-top: var(--spacing-triple);
     gap: var(--spacing-triple);
-    h2 {
-        text-align: left;
-    }
 }
 .plugin-description {
     text-align: left;

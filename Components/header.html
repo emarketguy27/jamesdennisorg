@@ -1,0 +1,91 @@
+<header class="header" id="header">
+    <div class="logo-switch-container">
+        <a href="/index.html" class="logo-title">
+        <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo">
+        <p class="logo-text" style="z-index: -1;">james dennis</p>
+        </a>    
+    </div>
+    <nav>
+        <div class="availability"><p>availability: <span id="datetime"></span></p></div>
+        <div class="nav-links_container">
+            <div class="nav-link_wrapper">
+                <div class="nav-link_bg"></div>
+                <a href="/plugins.html" class="nav-link">
+                    <div class="nav-link_overflow">
+                        <div class="nav-link_text-a">
+                            <div class="nav-link_p">plugins</div>
+                        </div>
+                        <div class="nav-link_text-b">
+                            <div class="nav-link_p">plugins</div>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="nav-link_wrapper" style="position: relative">
+                <div class="nav-link_bg"></div>
+                <a href="/services.html" class="nav-link">
+                    <div class="nav-link_overflow">
+                        <div class="nav-link_text-a">
+                            <div class="nav-link_p">services</div>
+                        </div>
+                        <div class="nav-link_text-b">
+                            <div class="nav-link_p">services</div>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="nav-link_wrapper" id="nav-link-cta">
+                <div class="nav-link_bg"></div>
+                <a href="/contact.html" class="nav-link">
+                    <div class="nav-link_overflow">
+                        <div class="nav-link_text-a">
+                            <div class="nav-link_p">book me</div>
+                        </div>
+                        <div class="nav-link_text-b">
+                            <div class="nav-link_p" style="color: var(--color-brand);">book me</div>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+        </div>
+        <div class="open-icon-container">
+            <img class="modal-open"
+            alt="menu-open"
+            id="menu-open" 
+            src="/Assets/Fonts/Material-icons/Purple/menu_open_30dp_6D76C5_FILL0_wght400_GRAD0_opsz24.png"
+            onclick="modalVisible()">   
+        </div>
+    </nav>
+    
+    <div class="modal" id="menu-modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <ul class="modal-list">
+                    <li><a href="/index.html">home</a></li>
+                    <li>
+                        <a href="/services.html">services</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <img class="web-dev icon" alt="menu-open" src="/Assets/Fonts/Material-icons/Blue/code_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png">
+                                <a href="#webdev" onclick="modalVisible()">Web Development</a>
+                            </li>
+                            <li>
+                                <img class="modal-icon" alt="wordpress-services-icon" src="/Assets/Fonts/Material-icons/Blue/w-logo-blue.png">
+                                <a href="#wordpress" onclick="modalVisible()">WordPress</a>
+                            </li>
+                            <li>
+                                <img class="modal-icon" alt="mobile-apps-icon" src="/Assets/Fonts/Material-icons/Blue/devices_other_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png">
+                                <a href="#mobile_app" onclick="modalVisible()">Mobile Apps</a>
+                            </li>
+                            <li>
+                                <img class="modal-icon" alt="seo-services-icon" src="/Assets/Fonts/Material-icons/Blue/query_stats_30dp_0074A2_FILL0_wght400_GRAD0_opsz24 (1).png">
+                                <a href="#seo" onclick="modalVisible()">SEO</a>
+                            </li> 
+                        </ul>
+                    </li>
+                    <li><a href="/contact.html">bookMe</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

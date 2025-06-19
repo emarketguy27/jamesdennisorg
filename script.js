@@ -1,37 +1,8 @@
-/* VIEW TRANSITIONS API CUSTOMIZATION */
-// pages = [
-//     '',
-//     'form.html',
-// ]
-
-// ----------Custom view transition----------
-// window.addEventListener('pagereveal', async (event) => {
-//     if (!event.viewTransition) return;
-
-//     const oldUrl = navigation.activation.from.url;
-//     const targetUrl = navigation.activation.entry.url;
-//     console.log(oldUrl);
-//     console.log(targetUrl);
-//     const oldPath = new URL(oldUrl).pathname.split('/').pop();
-//     const targetPath = new URL(targetUrl).pathname.split('/').pop();
-
-//     const oldIndex = pages.indexOf(oldPath);
-//     const newIndex = pages.indexOf(targetPath);
-
-//     const direction = oldIndex < newIndex ? 'forward' : 'backward';
-
-//     document.documentElement.dataset.direction = direction;
-
-//     await event.viewTransition.finished;
-// })
-
 // -------------------------------------------------
 // -------------Lenis Smooth Scroll-----------------
 // -------------------------------------------------
 const lenis = new Lenis({
-    // duration: 3,
     lerp: 0.05,
-    // easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -20 * t)),
     direction: "vertical",
     gestureDirection: "vertical",
     smooth: true,
@@ -47,121 +18,218 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 //---------------------------------------------------------------------
-//--------------------DOM Content Loaded Scripts-----------------------
+//------------------------- Load Components ---------------------------
 // --------------------------------------------------------------------
+async function loadComponents() {
+    // 1. Load HTML components
+    try {
+        // 1. Load the header
+        const headerResponse = await fetch('./Components/header.html');
+        const headerHtml = await headerResponse.text();
+        document.getElementById('header-placeholder').innerHTML = headerHtml;
 
-document.addEventListener("DOMContentLoaded", () => {
-    //--------------------Page Navigation Transitions------------------
+        // 2. Load the footer
+        const footerResponse = await fetch('./Components/footer.html');
+        const footerHtml = await footerResponse.text();
+        document.getElementById('footer-placeholder').innerHTML = footerHtml;
+
+        // 3. DOM Dependent global functions
+        dateTime();
+        initScrollHandler();
+        setupNavLinks();
+        setupModal();
+    } catch (error) {
+        console.error('Error loading components:', error);
+    }
+
+    // 2. Run loading animation
+    startLoadingAnimation();
+
+    // 3. Initialize page-specific animations
+    initPageAnimations(); 
+}
+
+//---------------------------------------------------------------------
+//----------------------- Loading Animations --------------------------
+// --------------------------------------------------------------------
+function startLoadingAnimation() {
+    // First check if elements exist
+    const header = document.querySelector('.header');
+    const bars = document.querySelectorAll('.bar');
+    const loadText = document.querySelector('.load-text');
+    
+    if (!header || !bars.length || !loadText ) {
+        console.warn("Animation elements not found - retrying...");
+        setTimeout(startLoadingAnimation, 100); // Retry after 100ms
+        return;
+    }
+    // Initialize animations
+    gsap.set(".header", { yPercent: -100 });
+    gsap.set(".load-text", { display: "grid" });
+    
+    let entryTl = gsap.timeline();
+    entryTl.add("loader")
+        .fromTo(".load-text", 
+            { opacity: 0, yPercent: 100 }, 
+            { opacity: 1, yPercent: 0 }, "loader")
+        .to(bars, {
+            height: 0,
+            stagger: { from: "center", amount: 0.2 },
+            delay: 1,
+        }, "loader")
+        .to('.load-text', 
+            { yPercent: -100, opacity: 0, display: "none", duration: .3 }, "loader+=1")
+        .to('.loader-container', { height: 0 }, "-=.5")
+        .add("content")
+        .to(".header", { yPercent: 0 }, "content")
+}
+
+//---------------------------------------------------------------------
+//--------------- Page Specific Loading Animations --------------------
+// --------------------------------------------------------------------
+function initPageAnimations() {
+    console.log("Loading Page Animations");
+    const page = document.body.dataset.page; // Set via <body data-page="services">
+    gsap.set(".hero-title", {y: 100, opacity: 0});
+    
+    // Common animations (runs on all pages)
+    gsap.to(".hero-title", {
+        y: 0,
+        opacity: 1,
+        ease: "power2.out",
+        delay: 1.5
+    });
+
+    // Page-specific animations - (Above the fold only - see page specific Scripts/page.js for below the fold)
+    switch(page) {
+        case "index":
+            gsap.set('.logo-char', {opacity:0, yPercent: 100});
+
+            gsap.to('.logo-char', {opacity: 1, yPercent: 0, stagger: {each: 0.02, from: "center", duration: 0.03}, delay: 1.3});
+            
+            break;
+        case "services":
+            function serviceLoadingAnimation() {
+                gsap.set(".images-grid h2", {y: 60,opacity: 0});
+
+                let tl = gsap.timeline();
+
+                let targets = gsap.utils.toArray(".images-grid .item");
+                targets.forEach(target => {gsap.set(target, {clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",})});
+
+                tl.to(".images-grid h2", {
+                    y: 0,
+                    opacity: 1,
+                    duration: .7,
+                    ease: "bounce.out",
+                    delay: 2
+                })
+                .to(".images-grid .item", {
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+                    duration: 1,
+                    stagger: .075,
+                    ease: "power4.out",
+                }, "<");
+            }
+            serviceLoadingAnimation();
+            break;
+        case "plugins":
+            // Plugins page animations
+            break;
+        // Add other pages as needed
+    }
+}
+
+//---------------------------------------------------------------------
+//-------------------------- Global Scripts ---------------------------
+// --------------------------------------------------------------------
+function dateTime() {
+    const date = new Date();
+    const years = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+    const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(date);
+    const datetime = month + " " + years;
+    
+    document.querySelectorAll('#datetime').forEach(el => {
+        el.innerHTML = datetime;
+    });
+    
+    const copyrightEl = document.querySelector('.copyright p');
+    if (copyrightEl) {
+        copyrightEl.innerHTML = `© ${years} James Dennis`;
+    }
+}
+
+// --------------------------------------------------------------------
+// ----------Hide/Show navbar & ScrolltoTop on scroll up/down----------
+// --------------------------------------------------------------------
+function initScrollHandler() {
+    let prevScrollpos = window.pageYOffset;
+    const scrollHeight = document.documentElement.scrollHeight;
+
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById("header");
+        const toTop = document.getElementById("toTop");
+        
+        if (!header || !toTop) return;
+
+        const currentScrollPos = window.pageYOffset;
+        const scrollPercent = ((currentScrollPos / scrollHeight) * 100).toFixed();
+
+        if (prevScrollpos < currentScrollPos && scrollPercent > 10) {
+            header.classList.add("hidden");
+        } else {
+            header.classList.remove("hidden");
+        }
+
+        if (scrollPercent > 10 && scrollPercent >= 88) {
+            toTop.style.bottom = "80px";
+        } else if (scrollPercent > 10 && scrollPercent < 88) {
+            toTop.style.bottom = "0px";
+        } else {
+            toTop.style.bottom = "-80px";                
+        }
+        prevScrollpos = currentScrollPos;  
+    });
+}
+
+//---------------------------------------------------------------------
+//--------------------Navigation and Modal Setup----------------------
+// --------------------------------------------------------------------
+function setupNavLinks() {
     const navLinks = document.querySelectorAll("a");
     navLinks.forEach(link => {
         link.addEventListener("click", (e) => {
-            if (
-                e.target.hostname === window.location.hostname &&
-                e.target.getAttribute("href").indexOf("#") === -1 &&
-                e.target !== "_blank"
-            )   {
+            if (e.target.hostname === window.location.hostname &&
+                e.target.getAttribute("href")?.indexOf("#") === -1 &&
+                e.target.getAttribute("target") !== "_blank") {
                 e.preventDefault();
                 let destination = e.target.getAttribute("href");
                 document.getElementById("header").classList.add("hidden");
-                gsap.fromTo(".bar", {height: 0,}, {height: "105vh", stagger: { amount: 0.2, from: "center"},
-
-                    onComplete: () => {
-                        window.location = destination;
-                    }
+                gsap.fromTo(".bar", {height: 0}, {
+                    height: "105vh", 
+                    stagger: { amount: 0.2, from: "center"},
+                    onComplete: () => window.location = destination
                 });
             }
-            
         });
     });
+}
 
-    // --------------------------------------------------------------------
-    // ----------Hide/Show navbar & ScrolltoTop on scroll up/down----------
-    // --------------------------------------------------------------------
-    var prevScrollpos = window.pageYOffset;
-    const scrollHeight = document.documentElement.scrollHeight;
-
-    window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-        scrollPercent = ((currentScrollPos / scrollHeight) * 100).toFixed();
-
-        if (prevScrollpos < currentScrollPos && scrollPercent > 10) {
-            // document.getElementById("header").style.top = "-80px";
-            document.getElementById("header").classList.add("hidden");
-        } else {
-            // document.getElementById("header").style.top = "0px";
-            document.getElementById("header").classList.remove("hidden");
-        };
-
-        if (scrollPercent > 10 && scrollPercent >= 88) {
-            document.getElementById("toTop").style.bottom = "80px";
-        } else {
-            if (scrollPercent > 10 && scrollPercent < 88) {
-                document.getElementById("toTop").style.bottom = "0px";
-            } else {
-                document.getElementById("toTop").style.bottom = "-80px";                
-            }
-        }
-        prevScrollpos = currentScrollPos;  
+function setupModal() {
+    // Set global function
+    window.modalVisible = function() {
+        const modal = document.getElementById("menu-modal");
+        if (modal) modal.classList.toggle("visible");
     };
     
-    // ----------------------------------------------------------
-    // ----------------Main Sub-Menu Modal-----------------------
-    // ----------------------------------------------------------
-    window.modalVisible = function() {
-        var element = document.getElementById("menu-modal");
-        element.classList.toggle("visible");
+    // Add click handler to modal toggle button
+    const modalToggle = document.querySelector("[data-modal-toggle]");
+    if (modalToggle) {
+        modalToggle.addEventListener("click", window.modalVisible);
     }
-})
+}
 
-
-
-
-
-// ----------------------------------------------------------
-// -------------Theme Preference Light/Dark------------------
-// ----------------------------------------------------------
-// function getUserPreference() {
-//     return localStorage.getItem('theme') || 'system';
-//   }
-//   function saveUserPreference(userPreference) {
-//     localStorage.setItem('theme', userPreference);
-//   }
-
-//   function getAppliedMode(userPreference) {
-//     if (userPreference === 'light') {
-//       return 'light';
-//     }
-//     if (userPreference === 'dark') {
-//       return 'dark';
-//     }
-//     // system
-//     if (matchMedia('(prefers-color-scheme: light)').matches) {
-//       return 'light';
-//     }
-//     return 'dark';
-//   }
-
-//   function setAppliedMode(mode) {
-//     document.documentElement.dataset.appliedMode = mode;
-//   }
-  
-//   function rotatePreferences(userPreference) {
-//     if (userPreference === 'system') {
-//       return 'light'
-//     }
-//     if (userPreference === 'light') {
-//       return 'dark';
-//     }
-//     if (userPreference === 'dark') {
-//       return 'system';
-//     }
-//     // for invalid values, just in case
-//     return 'system';
-//   }
-  
-//   const themeDisplay = document.getElementById('mode');
-//   const themeToggler = document.getElementById('theme-toggle');
-  
-//   let userPreference = getUserPreference();
-//   setAppliedMode(getAppliedMode(userPreference));
-//   themeDisplay.innerText = userPreference;
+// Initialize everything when DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+    loadComponents();
+});

@@ -17,7 +17,7 @@
 
 </head>
     <body>
-        <div class="loader-container" style="position: fixed; width: 100%; height: 100vh; z-index: 9999; display: flex;">
+        <div class="loader-container">
             <h3 class="load-text" style="position: fixed; top: 50%; width: 100%; display: none; place-items: center; margin-inline: auto">jamesdennis.org</h3>
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
@@ -40,110 +40,7 @@
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
             <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
         </div>
-        <header class="header hidden" id="header">
-            <div class="logo-switch-container">
-                <a href="/index.html" class="logo-title">
-                <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo" style="z-index: -1;">
-                <p class="logo-text" style="z-index: -1;">james dennis</p>
-                </a>    
-            </div>
-            <nav>
-                <div class="availability"><p>availability: <span id="datetime"></span></p></div>
-                <div class="nav-links_container">
-                    <div class="nav-link_wrapper">
-                        <div class="nav-link_bg"></div>
-                        <a href="/plugins.html" class="nav-link" data-text="coming soon">
-                            <div class="nav-link_overflow">
-                                <div class="nav-link_text-a">
-                                    <div class="nav-link_p">plugins</div>
-                                </div>
-                                <div class="nav-link_text-b">
-                                    <div class="nav-link_p">plugins</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
-                    <div class="nav-link_wrapper" style="position: relative">
-                        <div class="nav-link_bg"></div>
-                        <a href="/services.html" class="nav-link">
-                            <div class="nav-link_overflow">
-                                <div class="nav-link_text-a">
-                                    <div class="nav-link_p">services</div>
-                                </div>
-                                <div class="nav-link_text-b">
-                                    <div class="nav-link_p">services</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
-                    <div class="nav-link_wrapper" id="nav-link-cta">
-                        <div class="nav-link_bg"></div>
-                        <a href="/contact.html" class="nav-link">
-                            <div class="nav-link_overflow">
-                                <div class="nav-link_text-a">
-                                    <div class="nav-link_p">book me</div>
-                                </div>
-                                <div class="nav-link_text-b">
-                                    <div class="nav-link_p" style="color: var(--color-brand);">book me</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
-                </div>
-                <div class="open-icon-container">
-                    <img class="modal-open" 
-                    id="menu-open" 
-                    src="/Assets/Fonts/Material-icons/Purple/menu_open_30dp_6D76C5_FILL0_wght400_GRAD0_opsz24.png"
-                    onclick="modalVisible()">   
-                </div>
-            </nav>
-            
-            <div class="modal" id="menu-modal">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <ul class="modal-list">
-                            <li><a href="/index.html">home</a></li>
-                            <li>
-                                <a href="/services.html">services</a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/code_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png">
-                                        <a href="#webdev" onclick="modalVisible()">Web Development</a>
-                                    </li>
-                                    <li>
-                                        <img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/w-logo-blue.png">
-                                        <a href="#wordpress" onclick="modalVisible()">WordPress</a>
-                                    </li>
-                                    <li>
-                                        <img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/devices_other_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png">
-                                        <a href="#mobile_app" onclick="modalVisible()">Mobile Apps</a>
-                                    </li>
-                                    <li>
-                                        <img class="modal-icon" src="/Assets/Fonts/Material-icons/Blue/query_stats_30dp_0074A2_FILL0_wght400_GRAD0_opsz24 (1).png">
-                                        <a href="#seo" onclick="modalVisible()">SEO</a>
-                                    </li> 
-                                </ul>
-                            </li>
-                            <li><a href="/contact.html">bookMe</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="circle" id="circle">
-             <svg width="40" height="40">
-                <img src="/Assets/Images/favicon.ico" alt="" class="cursor-logo"></svg>
-             <svg width="40" height="40">
-                <img src="/Assets/Images/forward.svg" alt="" class="cursor-hover" style="opacity: 0;">
-            </svg>
-            <svg width="40" height="40">
-                <img src="/Assets/Images/maximize-square-3.svg" alt="" class="card-open" style="opacity: 0;">
-            </svg>
-            <svg width="40" height="40">
-                <img src="/Assets/Images/document-add.svg" alt="" class="hire-icon" style="opacity: 0;">
-            </svg>
-        </div>
+        <div id="header-placeholder"></div>
 
         <div class="content-wraper" id="top">
             <div class="form-container overlay">
@@ -203,91 +100,12 @@
             </div>
         </div>
         
-        <footer class="footer">
-            <div class="footer-site-logo">
-                <a href="/" class="logo-title">
-                    <img class="site-logo" src="/Assets/Images/JDLogoSpin.png" alt="James Dennis Logo">
-                    <p class="logo-text">james dennis</p> 
-                </a>
-            </div>
-            <div class="contact-row">
-                <div class="contact-box availability">
-                    <h3>Available:</h3>
-                    <p><span id="datetime"></span></p>
-                </div>
-                <div class="contact-box contact">
-                    <h3>Contact:</h3>
-                    <p><a href="mailto:james@jamesdennis.org">james@jamesdennis.org</a></p>
-                </div>
-                <div class="contact-box copyright">
-                    <h3>Copyright:</h3>
-                    <p>jamesdennis &copy <span><script>document.write(new Date().getFullYear())</script></span></p>
-                </div>
-            </div>
-            <!-- Scroll To Top -->
-            <div class="scroll-to-top-container" id="toTop">
-                <a href="#top">
-                    <img class="scroll-to-top" src="/Assets/Fonts/Material-icons/Blue/vertical_align_top_30dp_0074A2_FILL0_wght400_GRAD0_opsz24.png" alt="scroll to top">
-                </a>  
-            </div>
-        </footer>
+        <div id="footer-placeholder"></div>
 
-        <script> // Date - Time script
-            function dateTime() {
-                // Get current date and time
-            const date = new Date();
-            const years = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
-            const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(date);
-            datetime = month + " " + years;
-            currentYear = years;
-            // Set the copyright year
-            document.querySelector('.copyright p').innerHTML = "© " + currentYear + " James Dennis";
-            // Display the date and time in the element with id="datetime"
-            document.getElementById("datetime").innerHTML = datetime;
-            }
-            dateTime();
-        </script>
         <script src="https://unpkg.com/split-type"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js" integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js" integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="script.js"></script>
         <script src="/Scripts/gsap.js"></script>
-        <script src="/Scripts/darkmode.js"></script>
-        <script> // Loading Animation
-            function startLoadingAnimation() {
-                
-                const loader = document.querySelector('.loader-container');
-                const bars = document.querySelectorAll('.bar');
-                const headline = new SplitType(".hero-title", {type: "lines",});
-                headline.lines.forEach((line) => {
-                    const content = line.innerHTML;
-                    line.innerHTML = `<span>${content}</span>`;
-                });
-                
-                gsap.set(".hero-title .line span", {display: "block",});
-                gsap.set(".hero-title .char", {opacity: 0.05,});
-                gsap.set(".header", {yPercent: -100,});
-                gsap.set(".load-text", {display: "grid",});
-
-                let entryTl = gsap.timeline();
-                entryTl.add("loader") // timing marker (loader)
-                .fromTo(".load-text", {opacity: 0, yPercent: 100,}, {opacity: 1, yPercent: 0,}, "loader")
-                .to(bars, {
-                    duration: .5, 
-                    height: 0, 
-                    stagger: {from: "center", amount: 0.2,},
-                    delay: 1,
-                    ease: "power4.inOut",
-                }, "loader")
-                .to('.load-text', {yPercent: -100, opacity: 0, display: "none", duration: .3}, "loader+=1")
-                .to(loader, {height: 0,}, "-=.5")
-                .add("content") // timing marker (content)
-                document.getElementById("header").classList.remove("hidden");
-                entryTl.to(".header", {yPercent: 0,}, "content")
-                .from(".hero-title .line span", {yPercent: 200, opacity: 0,}, "content")
-                .to(".hero-title .char", {opacity: 1, y: 0, stagger: 0.04,}, ">");
-            }
-            startLoadingAnimation();
-        </script>
     </body>
 </html>
