@@ -2222,6 +2222,27 @@ header.hidden {
     }
 }
 
+/* ----------Plugin Page ------------*/
+.plugin-summary {
+    width: 100%;
+    padding: var(--spacing-quadruple);
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-triple);
+    justify-content: center;
+    & .info-container {
+        min-width: 50%;
+        & li {
+            list-style-type: none;
+        }
+    }
+    & img {
+        width: 100%;
+        max-width: 540px;
+    }
+}
+
 /* ---------- SOCIAL MEDIA LINKS TRAPDOOR BOX ---------- */
 .social-container {
     display: flex;

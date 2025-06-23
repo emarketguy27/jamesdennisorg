@@ -44,7 +44,53 @@
         <div class="content-wrapper" id="top">
             <h1 class="plugin-title hero-title">Keto Macro Calculator</h1>
             <div class="content-section">
-                <a href="https://github.com/emarketguy27/keto-macro-calculator/releases/download/v1.5.0/keto-macro-calculator.zip" class="button download-btn" target="_blank" rel="noopener">Download  <i class="fa-solid fa-file-zipper"></i></a>
+                <div class="plugin-container">
+                    <div class="plugin-info">
+                        <div class="plugin-title"><h2><a href="keto-macro-calculator.html">Keto Macro Calculator</a></h2></div>
+                        <p class="plugin-description">Keto Macro Calculator is a modern, fully responsive macronutritional calculator specifically designed for the Ketogenic Diet. <br/><br/>Simply add the shortcode to any page or post to display an interactive calculator that helps users determine their optimal macronutrient ratios for a ketogenic lifestyle.</p>
+                        <div class="action-group">
+                            <p><a href="https://www.ketobible.net/keto-diet-macro-calculator/" target="_blank" rel="noopener"><strong>See it in Action</strong><i class="fa-solid fa-diamond-turn-right"></i></a></p>
+                            <p><a href="https://github.com/emarketguy27/keto-macro-calculator/releases/download/v1.5.0/keto-macro-calculator.zip" target="_blank" rel="noopener"><strong>Download</strong><i class="fa-solid fa-file-zipper"></i></a></p> 
+                        </div>
+                        
+                    </div>
+                    <div class="plugin-images">
+                        <img src="./Assets/Images/Content/Screenshot3.png" alt="plugin-image" class="plugin-wrapper-image">
+                        <img src="./Assets/Images/Content/Screenshot4.png" alt="plugin-image" class="plugin-wrapper-image">
+                    </div>
+                </div>
+                <div class="plugin-summary">
+                    <div class="info-container">
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>- Supports both Metric and US Customary units for input.</li>
+                            <li>- Displays calculated results in both tabular and graphical formats.</li>
+                            <li>- Offers diet plans for weight loss or weight gain, tailored to user goals.</li>
+                            <li>- Easily embed the calculator on any WordPress page using shortcode.</li>
+                            <li>- Modern, stylish UI/UX design.</li>
+                            <li>- Smooth animations for enhanced user experience.</li>
+                            <li>- Interactive charts for visualizing macronutrient distribution.</li>
+                            <li>- Includes responsive, animated variations slider.</li>
+                            <li>- Fully responsive - works on all devices.</li>
+                            <li>- Simple shortcode implementation.</li>
+                            <li>- Compatible with both classic and block themes.</li>
+                        </ul>
+                        <h3>Future / Pro Updates</h3>
+                        <ul>
+                            <li>- Customization options for table and graph styles.</li>
+                            <li>- Options for customizing result text.</li>
+                            <li>- Customization of styling / Wordpress Theme.</li>
+                        </ul>
+                        <h3>Installation</h3>
+                        <p><strong>WordPress Repository</strong></p>
+                        <p>Update to include WordPress installation guide when available on the Repository.</p>
+                        <p><strong>Manual Installation</strong></p>
+                        <p>Upload the keto macro calculator folder to the /wp-content/plugins/ directory.
+Activate the plugin via the 'Plugins' menu in WordPress.
+Add the [keto_macro_calculator] shortcode wherever you wish to display the Keto Calculator.</p>
+                    </div>
+                    <img src="/Assets/Images/Keto-calculator-fullScreen.png" alt="fullscreen image of plugin">
+                </div>
             </div>
         </div>
         <div id="footer-placeholder"></div>
@@ -54,63 +100,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js" integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Flip.min.js"></script>
         <script src="script.js"></script>
-        <script src="/Scripts/gsap.js"></script>
-        <script src="/Scripts/index.js"></script>
-        <script> // Loading Animation
-            function startLoadingAnimation() {
-                const loader = document.querySelector('.loader-container');
-                const bars = document.querySelectorAll('.bar');
-                const headline = new SplitType(".hero-title", {type: "lines",});
-                headline.lines.forEach((line) => {
-                    const content = line.innerHTML;
-                    line.innerHTML = `<span>${content}</span>`;
-                });
-                
-                gsap.set(".hero-title .line span", {display: "block",})
-                gsap.set(".hero-title .char", {opacity: 0.05,y: 10,});
-                gsap.set(".header", {yPercent: -100,})
-                gsap.set(".load-text", {display: "grid",});
-                // gsap.set(".content-wrapper", {display: "flex", opacity: 1});
-                
-                let entryTl = gsap.timeline();
-                entryTl.add("loader") // timing marker (loader)
-                .fromTo(".load-text", {opacity: 0, yPercent: 100,}, {opacity: 1, yPercent: 0,}, "loader")
-                .to(bars, {
-                    height: 0, 
-                    stagger: {from: "center", amount: 0.2,},
-                    delay: 1,
-                }, "loader")
-                .to('.load-text', {yPercent: -100, opacity: 0, display: "none", duration: .3}, "loader+=1")
-                .to(loader, {height: 0,}, "-=.5")
-                .add("content") // timing marker (content)
-                document.getElementById("header").classList.remove("hidden");
-                
-                entryTl.from(".logo-char", {
-                    yPercent: 100,
-                    opacity: 0,
-                    stagger: {from: "center", amount: 0.25,},
-                    ease: "power1.out",
-                }, "content-=.3")
-                .to(".header", {yPercent: 0,}, "content")
-                .from(".hero-title .line span", {yPercent: 200, opacity: 0,}, "content")
-                .to(".hero-title .char", {opacity: 1, y: 0, stagger: 0.04,}, ">");
-            }
-            startLoadingAnimation();
-        </script>
-        <script> // Date - Time script
-            function dateTime() {
-                // Get current date and time
-            const date = new Date();
-            const years = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
-            const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(date);
-            datetime = month + " " + years;
-            currentYear = years;
-            // Set the copyright year
-            document.querySelector('.copyright p').innerHTML = "© " + currentYear + " James Dennis";
-            // Display the date and time in the element with id="datetime"
-            document.getElementById("datetime").innerHTML = datetime;
-            }
-            dateTime();
-        </script>
     </body>
 </html>
