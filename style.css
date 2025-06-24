@@ -816,7 +816,7 @@ header {
             width: 100%;
             height: 100%;
             background-color: var(--color-background);
-            padding: var(--spacing-quadruple) var(--spacing-double);
+            padding: var(--spacing-quadruple);
             .modal-header {
                 display: flex;
                 justify-content: space-between;
@@ -844,13 +844,22 @@ header {
                     display: flex;
                     flex-direction: column;
                     padding-block: var(--spacing-triple);
+                    gap: var(--spacing-double);
                     li {
                         display: flex;
                         list-style: none;
                         position: relative;
+                        align-items: center;
+                        gap: var(--spacing-double);
+                        i {
+                            font-size: var(--font-xx-large);
+                            width: var(--spacing-triple);
+                            text-align: center;
+                            color: var(--color-accent);
+                        }
                         a {
                             font-family: 'Michroma', sans-serif;
-                            font-size: var(--font-huge);
+                            font-size: var(--font-xx-large);
                             font-weight: 600;
                             color: var(--color-text);
                         }
@@ -2507,8 +2516,23 @@ footer {
 
 /* ---------- MEDIA QUERIES ----------*/
 @media (max-width: 768px) {
+    .content-wrapper {
+        padding-top: 0;
+    }
+    .hero-content {
+        padding-inline: var(--spacing-double)!important;
+        .headings-group {
+            width: 100%!important;
+            .header-logo {
+                width: 100%!important;
+            }
+        }
+    }
+    .cta-wrapper-index {
+        height: 100%!important;
+    }
    .cube-wrapper {
-    flex-direction: column-reverse;
+    flex-direction: column-reverse!important;
    }
    header nav .availability {
     display: none;
