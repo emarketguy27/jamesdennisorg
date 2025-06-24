@@ -1221,7 +1221,8 @@ header.hidden {
         background-color: var(--color-foreground);
         box-shadow: var(--shadow-bottom);
         padding-block: var(--spacing-quadruple);
-        padding-inline: 10px;
+        padding-inline: var(--spacing-half);
+        gap: var(--spacing-double);
         & .section-title {
             display: flex;
             flex-direction: column;
@@ -2572,7 +2573,7 @@ footer {
     .plugin-container, .plugin-summary {
         flex-direction: column;
         .plugin-info {
-            padding: 0;
+            padding: var(--spacing-double);
         }
         .plugin-images {
             padding: 0;
