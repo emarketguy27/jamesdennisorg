@@ -1365,6 +1365,9 @@ header.hidden {
         }
 
     }
+    .plugins-wrapper {
+        background-color: transparent;
+    }
     & .cta-wrapper {
         height: 300vh;
         width: 100%;
@@ -2572,6 +2575,7 @@ footer {
         flex-direction: column;
         .plugin-info {
             padding: var(--spacing-double);
+            min-width: unset;
         }
         .plugin-images {
             padding: 0;
@@ -2594,8 +2598,27 @@ footer {
     }
 }
 @media (max-width: 600px) {
+    header {
+        padding: 0 var(--spacing-half);
+    }
+    .site-logo {
+        width: 1.5rem!important;
+    }
     header nav .nav-links_container .nav-link_wrapper:not(:nth-child(3)) {
         display: none;
+    }
+    .hero-title {
+        text-wrap: pretty!important;
+    }
+    .cube-wrapper {
+        width: unset!important;
+    }
+    .cta-section-index {
+        width: unset!important;
+    }
+    .cta-wrapper-last {
+        margin-top: unset!important;
+        height: 100vh!important;
     }
     footer {
         .copyright {

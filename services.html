@@ -586,30 +586,5 @@
         <script src="/Scripts/gsap.js"></script>
         <script src="script.js"></script>
         <script src="/Scripts/wordpress-quiz.js"></script>
-        <!-- <script>
-            function serviceLoadingAnimation() {
-                gsap.set(".images-grid h2", {y: 60,opacity: 0});
-
-                let tl = gsap.timeline();
-
-                let targets = gsap.utils.toArray(".images-grid .item");
-                targets.forEach(target => {gsap.set(target, {clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",})});
-
-                tl.to(".images-grid h2", {
-                    y: 0,
-                    opacity: 1,
-                    duration: .7,
-                    ease: "bounce.out",
-                    delay: 2
-                })
-                .to(".images-grid .item", {
-                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
-                    duration: 1,
-                    stagger: .075,
-                    ease: "power4.out",
-                }, "<");
-            }
-            serviceLoadingAnimation();
-        </script> -->
     </body>
 </html>
