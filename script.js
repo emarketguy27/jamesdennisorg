@@ -109,6 +109,7 @@ function initPageAnimations() {
             
             break;
         case "services":
+            const content = document.querySelector('.marquee-container');
             function serviceLoadingAnimation() {
                 gsap.set(".images-grid h2", {y: 60,opacity: 0});
 
@@ -116,6 +117,8 @@ function initPageAnimations() {
 
                 let targets = gsap.utils.toArray(".images-grid .item");
                 targets.forEach(target => {gsap.set(target, {clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",})});
+
+                
 
                 tl.to(".images-grid h2", {
                     y: 0,
@@ -131,6 +134,10 @@ function initPageAnimations() {
                     ease: "power4.out",
                 }, "<");
             }
+            setTimeout(() => {
+               content.style.display = "flex"; 
+            }, 1250);
+            
             serviceLoadingAnimation();
             break;
         case "plugins":

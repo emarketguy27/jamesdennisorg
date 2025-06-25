@@ -144,7 +144,7 @@ background-color: var(--color-accent-light);
 /* ----------          LOADER           ---------- */
 .loader-container {
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     z-index: 9999;
     display: flex;
@@ -2530,9 +2530,6 @@ footer {
     }
     header nav .nav-links_container .nav-link_wrapper:not(:nth-child(3)) {
         display: none;
-    }
-    .hero-title {
-        text-wrap: pretty!important;
     }
     .cube-wrapper {
         width: unset!important;
