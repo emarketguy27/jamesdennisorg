@@ -1141,7 +1141,10 @@ header.hidden {
 .content-section:not(:nth-of-type(1)) {
     margin-top: 100vh;
 }
-.content-section:not(:nth-of-type(4)) {
+/* .content-section {
+    margin-bottom: -100vh;
+} */
+.content-section:not(.seo-container) {
     margin-bottom: -100vh;
 }
 
