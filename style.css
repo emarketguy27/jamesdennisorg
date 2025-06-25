@@ -2582,6 +2582,22 @@ footer {
         .copyright {
             grid-column: 2 / -1;
         }
+        .logo-title {
+            width: fit-content;
+            .logo-text {
+                display: none;
+            }
+        }
+        .contact-box {
+            padding-block: .3em;
+            width: fit-content;
+            h3 {
+                font-size: var(--font-medium);
+            }
+            p {
+                font-size: var(--font-small);
+            }
+        }
     }
     * ul {
         column-count: 1!important;
@@ -2595,7 +2611,7 @@ footer {
 }
 @media (max-width: 500px) {
     .cta-wrapper, .cta-wrapper-last {
-        display: none;
+        /* display: none; */
     }
 }
 
