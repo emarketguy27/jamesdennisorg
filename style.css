@@ -2179,7 +2179,7 @@ input[type="url"] {
     padding-block: var(--spacing-double);
     border-top: 1px solid var(--color-border);
 }
-li{
+.plugin-info-list li{
     text-align: left;
     max-width: 60ch;
     margin-bottom: 1em;
