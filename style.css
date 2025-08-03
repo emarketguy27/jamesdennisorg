@@ -1141,9 +1141,7 @@ header.hidden {
 .content-section:not(:nth-of-type(1)) {
     margin-top: 100vh;
 }
-/* .content-section {
-    margin-bottom: -100vh;
-} */
+
 .content-section:not(.seo-container) {
     margin-bottom: -100vh;
 }
@@ -2125,11 +2123,30 @@ input[type="url"] {
     margin-top: var(--spacing-triple);
     padding-top: var(--spacing-triple);
 }
+.plugin-nav-list {
+    display: flex;
+    column-count: 2;
+    width: 60vw;
+    margin: 2em auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    & li {
+        padding: 0;
+        text-align: center;
+        width: fit-content;
+        margin-inline: 1em;
+    }
+}
 .plugin-container {
     display: flex;
     flex-direction: row;
     gap: var(--spacing-double);
     justify-content: center;
+    margin-block: var(--spacing-quadruple);
+    margin-inline: var(--spacing-double);
+    padding: var(--spacing-double);
+    background: var(--color-foreground);
 }
 .plugin-info {
     position:relative;
@@ -2175,11 +2192,41 @@ input[type="url"] {
         font-size: var(--font-large);
     }
 }
+.plugin-info-list {
+    padding-block: var(--spacing-double);
+    border-top: 1px solid var(--color-border);
+}
+li{
+    text-align: left;
+    max-width: 60ch;
+    margin-bottom: 1em;
+    font-size: 1.5rem;
+    text-wrap: pretty;
+    margin-left: 1em;
+    padding-left: 1em;
+    
+}
+.kmc-list li {
+    &::marker{
+        content: "🎯";
+        font-size: 1.5rem;
+    }
+}
+.rg-list li {
+    &::marker{
+        content: "✨";
+        font-size: 1.5rem;
+    }
+}
 .plugin-title {
     & h2 {
         margin-block: 0;
         text-align: left;
     }
+}
+.plugin-subtitle {
+    margin-block: var(--spacing-double);
+    text-align: left;
 }
 .plugin-description {
     text-align: left;
@@ -2193,11 +2240,26 @@ input[type="url"] {
     max-width: 650px;
     img {
         width: 100%;
+        height: 100%;
         aspect-ratio: 16/9;
         border-radius: var(--spacing-half);
     }
 }
-
+.plugin-image {
+    background-image: url(/Assets/Images/Content/rg-screenshot2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 600px;
+    max-width: 800px;
+    height: 100%;
+    place-content: center;
+    text-align: center;
+    box-shadow: var(--shadow-bottom);
+    border-radius: var(--spacing-half);
+}
+.overlay {
+    border-image: fill 1 linear-gradient(180deg, var(--color-foreground), rgba(0, 0, 0, 0.192) 50%);
+}
 /* ================= Individual Plugin Page ==================== */
 .plugin-summary {
     width: 100%;
@@ -2208,8 +2270,9 @@ input[type="url"] {
     gap: var(--spacing-triple);
     justify-content: center;
     align-items: center;
+    background: var(--color-background);
     & .info-container {
-        min-width: 50%;
+        width: 50%;
         & li {
             /* list-style-type: none; */
             letter-spacing: 1.1px;
